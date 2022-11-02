@@ -18,6 +18,8 @@ JAVASCRIPT:
 -kortet visar enbart namn på mobil men visar allt på desktop
 två kolumner kort på mobil och flera rader och kolumner kort på desktop✔️
 
+- Inte tillåta DUBBLETT-NAMN... dvs: Checka först om angivet-namn finns i någon objectMonster.monster.name..
+  IF finns "That name is already taken!" .. else: PUSH new Monster to objectMonster.monster.
 
 
 CSS:
