@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content= "width=device-width, user-scalable=no">
+    <!-- CSS  -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Title -->
+    <title>Monster DB 👹</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <!-- Google text-font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+ <!-- Header -->
+<header >
+<h1 id="header-text">Monster DB 👹</h1>
+</header>
+
+<!-- Main -->
+<main class="monster-showcase">
+    <!-- Lägger in i separat i JS -->
+
+</main>
+ <!-- TO_DO -->
+<!-- add monster section -->
+<section class="add-monster">
+<h2 class="add-header">Add monster</h2>
+<form class="add-monster-form">
+    <label>Monster name: <br>
+    <input type="text" id="monster-name" name="monster-name"  placeholder="create a name...">
+    </label>
+<label>Color: <br>
+    <select name="color" id="color-select">
+      <option value="none" selected disabled hidden>Pick a color...</option>
+      <option value="Yellow">Yellow</option>
+      <option value="Pink">Pink</option>
+      <option value="Brown">Brown</option>
+      <option value="Black">Black</option>
+      <option value="Green">Green</option>
+    </select>
+</label>
+<label>Type of monster: <br>
+    <select name="type" id="monster-type">
+      <option value="none" selected disabled hidden>Pick a type...</option>
+      <option value="Small">Small</option>
+      <option value="Mid">Mid</option>
+      <option value="Large">Large</option>
+      <option value="XXL">XXL</option>
+    </select >
+</label>
+    <input id="sub-btn" type="submit" value="submit">
+  </form>
+</section>
+
+<!-- Section for monster li -->
+<section class="monster-type">  
+    <h2>Monster Types:</h2>
+    <ul id="monster-type-list">      
+    <!-- Monster type list -->
+    </ul>
+</section>
+<!-- Section for color of monster -->
+<section class="monster-color">
+    <h2>Monster Colors:</h2>
+    <ul id="monster-color-list">
+       <!-- monster color list -->
+    </ul>
+</section>
+<!-- Footer -->
+<footer>
+<h4 id="footer-text">Made by Professionals</h4>
+</footer>
+<!-- JavaScript -->
+<script src="script.js"></script>
+</body>
+</html>
