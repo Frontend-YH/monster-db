@@ -3,7 +3,7 @@
 // MONSTER-SHOWCASE AUDIO
 var audioMonster = new Audio('monster.wav');
 function displayMinfo() {
-    audioMonster.play();    
+    audioMonster.play();
 }
 
 
@@ -47,7 +47,8 @@ const monsterObject = {
             name: 'Husmonstret',
             color: 'Pink',
             type: 'Mid',
-        },{
+        },
+        {
             name: 'Skabbjörnen',
             color: 'Green',
             type: 'XXL',
@@ -57,12 +58,22 @@ const monsterObject = {
     ],
     filteredMonsters: [{}],
 
- /* --------Funktion för att lägga till monster------- */
-    addMonster: function(e) {
+ /* --------Funktion för att lägga till monster samt kolla så inte användaren lägger till dubletter------- */
+    addMonster: function() {
 
-        let newName = document.querySelector("#monster-name").value
+        let newName = document.querySelector("#monster-name").value;
         let newColor = document.querySelector("#color-select").value;
         let newType = document.querySelector("#monster-type").value;
+
+        const duplicate = this.monster.map(e => e.name).indexOf(newName);
+        
+        // The map() method creates a new array populated with the results of calling 
+        // a provided function on every element in the calling array.
+        // Returns: A new array with each element being the result of the callback function.
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+        if(duplicate!==-1) { alert('Monstret finns redan! Välj ett annat namn!');
+        }else {
+
        this.monster.push({
             name: newName,
             color: newColor,
@@ -74,11 +85,13 @@ const monsterObject = {
 
         showMonsterColors();
         showMonsterTypes();
-
-
         console.log(this.monster);
- },
+
+        }
+
+    }
 }
+
 
 
 // redigera monster och kunna lägga till antal tentakler, antal ögon, antal horn och antal armar
@@ -107,7 +120,6 @@ btn.addEventListener("click", function(e){
     removeAllChildNodes(main);
     monsterCards('monster'); // Ladda in monsterCards igen
     e.preventDefault();
-  
   });
 
   // Klickar man på Monster DB Titeln i headern så reloadas objectMonster.monster
@@ -117,7 +129,6 @@ btn.addEventListener("click", function(e){
     monsterCards('monster'); // Ladda in monsterCards igen
     displayMinfo();
     e.preventDefault();
-  
   });
 
 /*--------------------Funktion för att hämta alla monstren och visa dom på skärmen----------*/
@@ -181,8 +192,6 @@ function showMonsterColors() {
 	// Loopar igenom values Arrayen med en .forEach och samlar ihop egenskaper (values) och dess antal 
 	// och lägger i en Array där egenskaper/values får index 0 och antal index 1.
     removeAllChildNodes(mcolors);
-    
-  
 
     values.forEach(function callback(value, index) {
 
@@ -193,19 +202,15 @@ function showMonsterColors() {
         valueArray[index][1] = amount;
         let li = document.createElement("li");
         li.innerHTML = `${value}: ${amount}`;
-        
-       
         (function(index){
             li.addEventListener("click", function() {
                 filterMonsters('color', value);
                })
        })(index)
-                
 
 
         mcolors.append(li);
 
-        
 
 	});
 }
@@ -232,9 +237,8 @@ function showMonsterTypes() {
         valueArray[index] = [];
         valueArray[index][0] = value;
         valueArray[index][1] = amount;
-      
-        let li = document.createElement("li");  
-        li.innerHTML = `${value}: ${amount}`;     
+        let li = document.createElement("li");
+        li.innerHTML = `${value}: ${amount}`;
 
         (function(index){
             li.addEventListener("click", function() {
@@ -242,7 +246,7 @@ function showMonsterTypes() {
                })
        })(index)
 
-        mtypes.append(li);    
+        mtypes.append(li);
 	});
 }
 
@@ -295,8 +299,7 @@ function filterMonstersByType(feature) {
 
 function filterMonsters(key, feature) {
 
-    
-    if (key=="type") {  
+    if (key=="type") {
         //alert(feature);
         monsterObject.filteredMonsters = filterMonstersByType(feature);
     } else if (key=="color") {
@@ -304,7 +307,6 @@ function filterMonsters(key, feature) {
     monsterObject.filteredMonsters = filterMonstersByColor(feature);
     }
 
-    
 
     // Kör monsterCards funktionen med hämtning från monsterObject.filteredMonsters 
     // istället för monsterObject.monster
