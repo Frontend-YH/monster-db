@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content= "width=device-width, user-scalable=no">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1" />-->
     <!-- CSS  -->
     <link rel="stylesheet" href="style.css">
     <!-- Title -->
@@ -34,10 +35,10 @@
 <section class="add-monster">
 <h2 class="add-header">Add monster</h2>
 <form class="add-monster-form">
-    <label>Monster name: <br>
+    <label class="input-label">Monster name:</label> <br>
     <input type="text" id="monster-name" name="monster-name"  placeholder="create a name...">
-    </label>
-<label>Color: <br>
+    
+<label class="input-label">Color:</label> <br>
     <select name="color" id="color-select">
       <option value="none" selected disabled hidden>Pick a color...</option>
       <option value="Yellow">Yellow</option>
@@ -46,8 +47,8 @@
       <option value="Black">Black</option>
       <option value="Green">Green</option>
     </select>
-</label>
-<label>Type of monster: <br>
+
+<label class="input-label">Type of monster:</label> <br>
     <select name="type" id="monster-type">
       <option value="none" selected disabled hidden>Pick a type...</option>
       <option value="Small">Small</option>
@@ -55,8 +56,8 @@
       <option value="Large">Large</option>
       <option value="XXL">XXL</option>
     </select >
-</label>
-    <input id="sub-btn" type="submit" value="submit">
+
+    <input id="sub-btn" type="submit" value="Add monster">
   </form>
 </section>
 
