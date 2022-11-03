@@ -127,7 +127,7 @@ btn.addEventListener("click", function(e){
 
     removeAllChildNodes(main);
     monsterCards('monster'); // Ladda in monsterCards igen
-    displayMinfo();
+    //displayMinfo(); 
     e.preventDefault();
   });
 
@@ -145,6 +145,9 @@ function monsterCards(monsterList) {
         let ul = document.createElement("ul");
         let li1 = document.createElement("li");
         let li2 = document.createElement("li");
+
+        // 2022-11-03 15:56 Lägger till class på UL för toggle historia
+        ul.className = "monsterInfo";
 
         h4.innerText = monsterObject[monsterList][i]['name'];
         li1.innerHTML = `Color: ${monsterObject[monsterList][i]['color']}`;

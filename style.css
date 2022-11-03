@@ -60,6 +60,12 @@ footer{
     height: 65.5vh;
 
 }
+/* Visar inga monster-detaljer på mobila enheter */
+.monsterInfo {
+    display: none;
+    margin: 0px;
+}
+
 .monster-showcase{
     display: grid;
     grid-area: monster-showcase;
@@ -165,4 +171,14 @@ margin: 0;
     padding-bottom: 1vh;
     height: 42.5vh;
     }
+
+    /* Visa monster-detaljer på desktop */
+    .monsterInfo {
+        display: block;
+        margin: 0px;
+    }
+
+
 }
+
+
