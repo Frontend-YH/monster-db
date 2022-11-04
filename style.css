@@ -220,7 +220,10 @@ input[type=text] {
 #footer-text{
     margin: auto;
 }
-
+.monsterColorLi:hover,.monsterTypeLi:hover{
+cursor: pointer;
+background-color: #ffffff46;
+}
 
 /* I mobil-läge har vi ett grid med 3 grid kolumner i formen */
 .add-monster-form {
