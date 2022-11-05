@@ -103,10 +103,24 @@ footer{
     
 }
 
+.edit-monsters {
+    /* I add-monster sektionen kör vi med FLEX och flex-direction: column */
+      display: none;
+      flex-direction: column;
+      grid-area: add-monster;
+      align-items: center;
+      border: 3px solid black;
+        /* vh används i höjdled och vw i sidled för att skala med mindre enheter */
+      padding: 1vh 2vw 1vh 2vw;
+      
+      background-color: #50577A;
+      color: white;   
+      display: none;
+      
+  }
 
 
-
-.monster-type{
+.monster-type {
     display: grid;
     grid-area: monster-type;
     border: 3px solid black;
@@ -115,7 +129,7 @@ footer{
     background-color: #50577A;
     color: white;
 }
-.monster-color{
+.monster-color {
     display: grid;
     grid-area: monster-color;
     border: 3px solid black;
@@ -125,12 +139,52 @@ footer{
     color: white;
 
 }
-#header-text{
+#header-text {
     margin: auto;
+    cursor: pointer;
+
 }
 
+/* Edit monsters, monster-features DIV container*/
+.monster-features {
 
+    padding-left: 0.5vw;  
+    padding-right: 0.5vw;     
+    padding-top: 1vh;
+    padding-bottom: 1vh;      
+    margin: 0px;  
+    margin-left: 1.4vw;
 
+}
+
+.mfeatures-subdiv {
+
+    min-width: min-content;
+
+}
+
+/* Edit monsters, monster-features checkboxes*/
+.mfeatures-checkboxes {
+    
+    margin-right: 3vh;
+    margin-left: 1vw;
+
+}
+
+.mlabel {
+
+    font-size: 20px;
+}
+
+.mlabel:hover {
+    text-decoration:line-through;
+    cursor:pointer; /* Mouse grab vid hovring */
+    background-color: #ffffff46;
+}
+.mlabel:active {
+    position:relative;
+    top:1px;
+}
 
  /* En massa view-width vw inlagt för att skala med mindre enheter */
  /* I höjdled kör vi view-height (vh) istället */
@@ -156,6 +210,9 @@ input[type=text] {
   .input-label {
     margin-left: 1.4vw;
     display: block;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    height: 4vh;
   }
 
  /* En massa view-width vw inlagt för att skala med mindre enheter */
@@ -178,7 +235,7 @@ input[type=text] {
 
 
 
-#sub-btn {
+.sub-btn {
    
     /* I mobil-läge täcker knappen hela griddet, från vänster till höger */
     grid-column: 1 / 4;
@@ -209,11 +266,11 @@ input[type=text] {
         text-shadow: 0px 1px 0px #2f6627;
 
 }
-#sub-btn:hover {
+.sub-btn:hover {
     background-color:#474E68;
     color: #ffffff;
 }
-#sub-btn:active {
+.sub-btn:active {
     position:relative;
     top:1px;
 }
@@ -224,6 +281,11 @@ input[type=text] {
 cursor: pointer;
 background-color: #ffffff46;
 }
+
+.monsterColorLi:hover,.monsterTypeLi:hover{
+    cursor: pointer;
+    background-color: #ffffff46;
+    }
 
 /* I mobil-läge har vi ett grid med 3 grid kolumner i formen */
 .add-monster-form {
@@ -276,7 +338,7 @@ background-color: #ffffff46;
     
     }
     /* Add monster knappen ska bara täcka 1 kolumn i Desktop-mode */
-    #sub-btn {   
+    .sub-btn {   
         grid-column: 1 / 2;
     }
 
