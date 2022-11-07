@@ -88,14 +88,15 @@ footer{
     margin: 0px;
 }
 
-.monster-showcase{
+.monster-showcase {
     display: grid;
     grid-area: monster-showcase;
     grid-template-columns: repeat(2,1fr);
     
     border: 3px solid black;
     
-    max-height: 66vh;
+    max-height: 60vh;
+    min-height: 60vh;
     
     /* max-height: 66vh; */
     margin: 0.5vh;
