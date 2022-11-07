@@ -26,7 +26,7 @@ body{
 }
 /*  */
 header{
-    display: grid;
+    text-align: center;
     grid-area: header;
     border: 2px solid black;
     height: 60px;
@@ -36,32 +36,52 @@ header{
     color: white;
 }
 footer{
-    display: grid;
+    text-align: center;
     grid-area: footer;
     border: 2px solid black;
-    margin: auto;
+    margin: 0px;
     height: 60px;
-    padding: 0px 20px 0 20px;    margin: 2px;
+    padding: 20px 20px 0px 20px;   
     background-color: #404258;
     color: white;
 }
 .add-header{
     
     text-align: center;
-    grid-column: 1 / 3;
+    
 
 }
+
 .add-monster-form {
   
+    display: grid;
     grid-area: form;
     padding: 13px 20px 0 20px;
-    grid-gap: 10px;
+    grid-gap: 1px;
     width: 69vh;
     margin: auto;
     padding-bottom: 2vh;
     height: 65.5vh;
+    justify-items: center; 
+
+    grid-template-columns: 1fr 1fr;
+    /*
+    grid-template-areas:
+        'label field'
+        'label field'
+        'label field'
+        'label field'
+        'button button';
+        */
 
 }
+
+.add-monster-div {
+
+    
+
+}
+
 /* Visar inga monster-detaljer på mobila enheter */
 .monsterInfo {
     display: none;
@@ -72,14 +92,17 @@ footer{
     display: grid;
     grid-area: monster-showcase;
     grid-template-columns: repeat(2,1fr);
+    
     border: 3px solid black;
     
-    min-height: 50vh;
+    max-height: 66vh;
+    
+    /* max-height: 66vh; */
     margin: 0.5vh;
     background-color: #474E68;
     color: white;
-    row-gap: 10%;
-    overflow-y: scroll;
+    row-gap: 5%;
+    overflow-y: auto;
 
     padding-top: 3vh;
     padding-right: 7vh;
@@ -94,12 +117,14 @@ footer{
     flex-direction: column;
     grid-area: add-monster;
     align-items: center;
+
     border: 3px solid black;
       /* vh används i höjdled och vw i sidled för att skala med mindre enheter */
-    padding: 1vh 2vw 1vh 2vw;
+    /* padding: 1vh 2vw 1vh 2vw; */
     
     background-color: #50577A;
     color: white;   
+    
     
 }
 
@@ -157,6 +182,20 @@ footer{
 
 }
 
+/* Add monsters SELECTBOX DIV */
+/*
+.monster-selects {
+
+    padding-left: 0.5vw;  
+    padding-right: 0.5vw;     
+    padding-top: 1vh;
+    padding-bottom: 1vh;      
+    margin: 0px;  
+    margin-left: 1.4vw;
+
+}
+*/
+
 .mfeatures-subdiv {
 
     min-width: min-content;
@@ -189,25 +228,26 @@ footer{
  /* En massa view-width vw inlagt för att skala med mindre enheter */
  /* I höjdled kör vi view-height (vh) istället */
 input[type=text] {
-    min-width: 28vw;
+
+    width: 28vw;
     height: 4vh;
     font-size: 20px;
     margin-left: 1.4vw;
     margin-right: 1.4vw;
-    margin-top: 1vh;
+    margin-top: 0vh;   
     margin-bottom: 6vh;
+    border-radius: 8px; 
 
-    border-radius: 8px;
-
-    padding-left: 0.5vw;  
-    padding-right: 0.5vw;     
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
     padding-top: 1vh;
-    padding-bottom: 1vh;      
+    padding-bottom: 1vh;        
 
   }
 
 
   .input-label {
+    text-align: left;
     margin-left: 1.4vw;
     display: block;
     margin-bottom: 0px;
@@ -218,7 +258,7 @@ input[type=text] {
  /* En massa view-width vw inlagt för att skala med mindre enheter */
   /* I höjdled kör vi view-height (vh) istället */
   select {
-    min-width: 29vw;
+    width: 29vw;
     height: 6vh;
     font-size: 20px;
     margin-left: 1.4vw;
@@ -237,7 +277,40 @@ input[type=text] {
 
 .sub-btn {
    
-    /* I mobil-läge täcker knappen hela griddet, från vänster till höger */
+    margin-left: 1.4vw;
+    margin-right: 1.4vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+
+    width: 29vw;
+    height: 8vh;
+
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+
+    border-radius: 10px;
+
+        background-color: #ffffff;
+        border-radius: 8px;
+        border: 1px solid #666eff;
+        
+        cursor: pointer;
+        color:#333;
+        font-family: Arial;
+        font-size: 24px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #2f6627;
+
+}
+
+/*
+
+gamla sub-btn:
+
+.sub-btn {
+   
     grid-column: 1 / 4;
    
     margin-left: 1.4vw;
@@ -266,6 +339,10 @@ input[type=text] {
         text-shadow: 0px 1px 0px #2f6627;
 
 }
+
+*/
+
+
 .sub-btn:hover {
     background-color:#474E68;
     color: #ffffff;
@@ -284,17 +361,7 @@ input[type=text] {
     background-color: #ffffff46;
     }
 
-/* I mobil-läge har vi ett grid med 3 grid kolumner i formen */
-.add-monster-form {
-      
-    padding: 0;
-    margin: 0;
-    grid-gap: 1px;
-    display: grid;
-    grid-template-columns: 1fr 0.2vw 1fr;
 
-
-}
 
 
 /* -----Media attribut för dator------ */
@@ -302,7 +369,7 @@ input[type=text] {
     body {
 
     grid-template-columns: repeat(3,1fr);
-        
+
     display: grid;
     grid-template-areas:
     'header header header'
@@ -310,6 +377,7 @@ input[type=text] {
     'monster-showcase monster-showcase add-monster'
     'monster-type monster-color add-monster'
     'monster-type monster-color add-monster'
+
     'footer footer footer';
 
     

@@ -35,7 +35,12 @@
 <section class="add-monster">
 <h2 class="add-header">Add monster</h2>
 <form class="add-monster-form">
-    <label class="input-label">Monster name:</label><input type="text" id="monster-name" name="monster-name"  placeholder="create a name...">
+    <div class="add-monster-div">
+    <label class="input-label">Monster name:</label><input type="text" id="monster-name" name="monster-name" placeholder="create a name...">
+  </div>
+    <div class="monster-selects">
+
+    </div>
 
 <!-- Tidigare pre-JS kod (numera replikerad i JSn för mer dynamik )-->
 <!--
@@ -56,11 +61,11 @@
       <option value="Mid">Mid</option>
       <option value="Large">Large</option>
       <option value="XXL">XXL</option>
-    </select>
+    </select>    -->
    
     <input id="sub-btn" class="sub-btn" type="submit" value="Add monster">
-    <input id="edit-btn" class="sub-btn" type="submit" value="Edit monsters">
-    -->
+    <input id="edit-btn" class="sub-btn" type="submit" value="Edit features">
+
   </form>
 </section>
 
@@ -72,7 +77,7 @@
         <div class="monster-features">
 
         </div>
-        <input id="sub-btn" class="sub-btn" type="submit" value="Save changes">
+        <input id="sub-btn" class="sub-btn" type="submit" value="Save changes" DISABLED>
         <input id="edit-btn2" class="sub-btn" type="submit" value="Add monster">
         
       </form>
