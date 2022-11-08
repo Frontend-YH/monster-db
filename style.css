@@ -102,8 +102,8 @@ footer{
     border: 3px solid black;
 
     
-    max-height: 90vh;
-    min-height: 90vh;
+    max-height: 100vh;
+    min-height: 100vh;
     
 
     /* max-height: 66vh; */

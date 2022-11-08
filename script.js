@@ -29,6 +29,7 @@ let inputAddButton= document.querySelector("#sub-btn"); // Add Monster Selectbox
 let editFeatureTypeSelect = document.querySelector("#edit-ft-select"); // Add Edit-section Feature Type Selectbox
 let editFeatureName = document.querySelector("#edit-ft-name"); // Feature Name input field
 let editFeatureSubmit = document.querySelector("#edit-btn3"); // Add new feature submit button
+let editColorCode = document.querySelector("#edit-ft-ccode"); // Add new feature Color Code
 
 
 
@@ -137,15 +138,15 @@ const monsterObject = {
 
     }, 
     // Method to add monster feature
-    addFeature: function(feature, ftid) {
+    addFeature: function(feature, ftid, colorcode) {
     
         let featureArr = [];
-        featureArr[0] = Number(ftid); // Feature Type ID
+        featureArr[0] = Number(ftid); // Feature Type ID converted to number
         featureArr[1] = feature; // Feature Name
-        featureArr[2] = '#ffffff'; // Feature Color
+        featureArr[2] = colorcode; // Feature Color Code
 
         this.monsterFeatures.push(featureArr); // Push new feature to monsterFeatures Array
-    
+        console.log(this.monsterFeatures);
      },    
 
     monsterFeatures: [],
@@ -480,8 +481,9 @@ editFeatureSubmit.addEventListener("click", function(e) {
 
    let ftid = editFeatureTypeSelect.value;
    let feature = editFeatureName.value;
+   let colorcode = editColorCode.value;
 
-    monsterObject.addFeature(feature, ftid);
+    monsterObject.addFeature(feature, ftid, colorcode); 
   
     // Töm monster-selects SelectBox Div
     removeAllChildNodes(monsterSelects);
@@ -494,8 +496,6 @@ editFeatureSubmit.addEventListener("click", function(e) {
 
     // Töm Feature Name fält
     editFeatureName.value = "";
-
-   
 
 });
 
