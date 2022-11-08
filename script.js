@@ -481,23 +481,37 @@ editFeatureSubmit.addEventListener("click", function(e) {
 
      e.stopImmediatePropagation();
 
-   let ftid = editFeatureTypeSelect.value;
-   let feature = editFeatureName.value;
-   let colorcode = editColorCode.value;
+   let ftid = editFeatureTypeSelect.value; // Id på vald Feature Typ (selectbox)
+   let feature = editFeatureName.value; // Namn-input-fältet
+   let colorcode = editColorCode.value; // Color code input-fältet.
 
-    monsterObject.addFeature(feature, ftid, colorcode); 
-  
-    // Töm monster-selects SelectBox Div
-    removeAllChildNodes(monsterSelects);
+   // IF SATS med indexOf() funktionen, för att:
+   // 1. ta reda på om det redan finns en Feature vid valt namn och om så är fallet stoppa inlägget.
+   // 2. ta reda på om input-fältet är tomt, och isåfall stoppa inlägget.
+   let duplicate = monsterObject.monsterFeatures.indexOf(feature);
+   console.log(duplicate);
+   if(duplicate!==-1) { alert('En Feature med det namnet finns redan. Välj ett annat namn!');
+   } else if(feature.length === 0) {
 
-    // Ladda in alla Select Boxes i Add monster pånytt
-    LoadSelectBoxes();  
+            alert('Du har inte angivit något namn på Featuren!');
 
-    // Ladda in alla monsterFeatures i Edit-funktionen pånytt
-    monsterFeatures();
+    } else {
 
-    // Töm Feature Name fält
-    editFeatureName.value = "";
+        monsterObject.addFeature(feature, ftid, colorcode); 
+    
+        // Töm monster-selects SelectBox Div
+        removeAllChildNodes(monsterSelects);
+
+        // Ladda in alla Select Boxes i Add monster pånytt
+        LoadSelectBoxes();  
+
+        // Ladda in alla monsterFeatures i Edit-funktionen pånytt
+        monsterFeatures();
+
+        // Töm Feature Name fält
+        editFeatureName.value = "";
+
+    }
 
 });
 
