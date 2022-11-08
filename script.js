@@ -31,9 +31,11 @@ let editFeatureName = document.querySelector("#edit-ft-name"); // Feature Name i
 let editFeatureSubmit = document.querySelector("#edit-btn3"); // Add new feature submit button
 let editColorCode = document.querySelector("#edit-ft-ccode"); // Add new feature Color Code
 
+// Dessa används främst i LoadSelectBoxes() funktionen till olika selectboxar
+let select = []; // Deklarera en select array i GLOBAL SCOPE
+let option = []; // Deklarera en option array i GLOBAL SCOPE
+let label = []; // Deklarera en label array i GLOBAL SCOPE
 
-
-editFeatureTypeSelect
 
 // MonsterObjekt med en array som innehåller monster , samt en addMonster metod
 const monsterObject = {
@@ -85,7 +87,7 @@ const monsterObject = {
 
  /* --------Funktion för att lägga till monster samt kolla så inte användaren lägger till dubletter------- */
     addMonster: function(newName, select) {
-
+        
         /*
         let newName = document.querySelector("#monster-name").value;
         let newColor = document.querySelector("#color-select").value;
@@ -216,14 +218,13 @@ monsterObject.monsterFeatures[9][2] = '#ffffff'; // ny temporär Shotgun
 monsterObject.monsterFeatures[10][2] = '#ffffff'; // ny temporär Rocket Launcher
 monsterObject.monsterFeatures[11][2] = '#ffffff'; // XXL
 
+
+
 function LoadSelectBoxes() {
 
-    let select = []; // Deklarera en select array
-    let option = []; // Deklarera en option array
-    let label = []; // Deklarera en label array
     let monsterFeatureType;
     let monsterFeature;
-    let typid;
+    let typid; 
 
     // Ta fram SELECT-boxar baserat på vilka olika Feature Typer som finns i objektets array monsterFeatureType.
     // Default är Color och Type. Ta även fram tillhörande Labels.
@@ -322,17 +323,18 @@ function LoadSelectBoxes() {
         // Listener för att Adda-monster
         inputAddButton.addEventListener("click", function(e) {
             
-           // Stoppa default event
-            e.preventDefault();
-
-            // Detta löser bugg med 2+ onödiga alert-popups. Vetefan hur. LOL.
-            e.stopImmediatePropagation();
 
             let newName = document.querySelector("#monster-name").value;
 
             monsterObject.addMonster(newName, select);
             removeAllChildNodes(main);
             monsterCards('monster'); // Ladda in monsterCards igen
+
+                       // Stoppa default event
+                       e.preventDefault();
+
+                       // Detta löser bugg med 2+ onödiga alert-popups. Vetefan hur. LOL.
+                       e.stopImmediatePropagation();
        
 
         });
