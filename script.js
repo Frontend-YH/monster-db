@@ -23,8 +23,16 @@ let monsterFeaturesDiv = document.querySelector(".monster-features");
 let mfeaturesCheckboxes = document.querySelectorAll(".mfeatures-checkboxes");
 
 let addMonsterForm = document.querySelector(".add-monster-form"); // Add Monster Form sektionen
-let monsterSelects= document.querySelector(".monster-selects"); // Add Monster Selectbox DIV
+let monsterSelects = document.querySelector(".monster-selects"); // Add Monster Selectbox DIV
 let inputAddButton= document.querySelector("#sub-btn"); // Add Monster Selectbox DIV
+
+let editFeatureTypeSelect = document.querySelector("#edit-ft-select"); // Add Edit-section Feature Type Selectbox
+let editFeatureName = document.querySelector("#edit-ft-name"); // Feature Name input field
+let editFeatureSubmit = document.querySelector("#edit-btn3"); // Add new feature submit button
+
+
+
+editFeatureTypeSelect
 
 // MonsterObjekt med en array som innehåller monster , samt en addMonster metod
 const monsterObject = {
@@ -90,7 +98,11 @@ const monsterObject = {
         // Returns: A new array with each element being the result of the callback function.
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
         if(duplicate!==-1) { alert('Monstret finns redan! Välj ett annat namn!');
-        } else {
+        } else if(newName.length === 0) {
+            alert('Monstret måste ha ett namn!');
+
+        }
+        else {
 
             let feature;
             let newMonster; 
@@ -125,6 +137,17 @@ const monsterObject = {
        this.monsterFeatures[id] = []; // Reset feature to zero/undefined
    
     }, 
+    // Method to add monster feature
+    addFeature: function(feature, ftid) {
+    
+        let featureArr = [];
+        featureArr[0] = Number(ftid); // Feature Type ID
+        featureArr[1] = feature; // Feature Name
+        featureArr[2] = '#ffffff'; // Feature Color
+
+        this.monsterFeatures.push(featureArr); // Push new feature to monsterFeatures Array
+    
+     },    
 
     monsterFeatures: [],
     monsterFeatureType: ['Color','Type', 'Weapon'],
@@ -241,6 +264,28 @@ function LoadSelectBoxes() {
 
     }
 
+
+    function loadFeatureTypeSelectBox() {
+
+        // Ta fram <option> element baserat på vilka olika Features som finns i objektets array monsterFeatureTypes
+        // Använd map() för att skapa en array där <option> läggs till tillsammans med FeatureType namn.
+       
+        // Med Arrow-Function och bara value: let option = monsterObject.monsterFeatureType.map(n => `<option value="${n}">${n}</option>`);
+
+        let option = monsterObject.monsterFeatureType.map(function(value, index) {
+            return `<option value=${index}>${value}</option>`;
+        });
+
+
+        let html = option.join(''); // Slå ihop arrayens olika element till en ensam sträng
+
+        // Lägg in den färdiga strängen html mellan <select> och </select>
+        editFeatureTypeSelect.innerHTML = html;
+
+    }
+
+    loadFeatureTypeSelectBox();
+
     /*
 
     // DYNAMISK CREATE AV DE 2 SUBMIT-KNAPPARNA för ett gammalt scenario
@@ -257,7 +302,7 @@ function LoadSelectBoxes() {
     inputEditButton.setAttribute("type", "submit");
     inputEditButton.setAttribute("value", "Edit monster"); 
 
-    inputAddButton.addEventListener("click", function(e){
+    inputAddButton.addEventListener("click", function(e) {
 
         
         let newName = document.querySelector("#monster-name").value;
@@ -280,12 +325,18 @@ function LoadSelectBoxes() {
         // Listener för att Adda-monster
         inputAddButton.addEventListener("click", function(e) {
             
+           // Stoppa default event
+            e.preventDefault();
+
+            // Detta löser bugg med 2+ onödiga alert-popups. Vetefan hur. LOL.
+            e.stopImmediatePropagation();
+
             let newName = document.querySelector("#monster-name").value;
 
             monsterObject.addMonster(newName, select);
             removeAllChildNodes(main);
             monsterCards('monster'); // Ladda in monsterCards igen
-            e.preventDefault();
+       
 
         });
 
@@ -300,6 +351,9 @@ LoadSelectBoxes();
 
 let btn = document.querySelector('#sub-btn');
 let editbtn = document.querySelector('#edit-btn');
+
+
+
 
 function monsterFeatures() {
 
@@ -421,6 +475,35 @@ editbtn.addEventListener("click", function(e) {
   });
 
 
+  
+// Listener för att lägg till new Feature med monsterObject.addFeature metoden
+editFeatureSubmit.addEventListener("click", function(e) {
+
+     // Stoppa default event
+     e.preventDefault();
+
+     e.stopImmediatePropagation();
+
+   let ftid = editFeatureTypeSelect.value;
+   let feature = editFeatureName.value;
+
+    monsterObject.addFeature(feature, ftid);
+  
+    // Töm monster-selects SelectBox Div
+    removeAllChildNodes(monsterSelects);
+
+    // Ladda in alla Select Boxes i Add monster pånytt
+    LoadSelectBoxes();  
+
+    // Ladda in alla monsterFeatures i Edit-funktionen pånytt
+    monsterFeatures();
+
+    // Töm Feature Name fält
+    editFeatureName.value = "";
+
+   
+
+});
 
   
 
