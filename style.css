@@ -80,6 +80,7 @@ footer{
 /* Visar inga monster-detaljer på mobila enheter */
 .monsterInfoArticle{
     border: 2px solid lightgray;
+    border-radius: 25px;
     padding: 0 0 0 10%;
 }
 .monsterInfo {
