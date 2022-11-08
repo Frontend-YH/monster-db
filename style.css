@@ -1,6 +1,7 @@
 /* Ändrar textfonten i hela html filen */
 html{
     font-family: 'Josefin Sans', sans-serif;
+
 }
 /* Skapar ett grid som utgår från template-area */
 body{
@@ -82,6 +83,7 @@ footer{
     border: 2px solid lightgray;
     border-radius: 25px;
     padding: 0 0 0 10%;
+    background-color: #404258;
 }
 .monsterInfo {
     display: none;
