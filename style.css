@@ -82,6 +82,9 @@ footer{
     display: none;
     margin: 0px;
 }
+.monsterInfoTitle{
+    padding: 0 0 0 5%;
+}
 
 .monster-showcase {
     display: grid;

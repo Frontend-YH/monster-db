@@ -443,6 +443,7 @@ function monsterCards(monsterList) {
 
         let article = document.createElement("article");
         let h4 = document.createElement("h4");
+        h4.className="monsterInfoTitle";
         let ul = document.createElement("ul");
         ul.className = "monsterInfo";
         let li;
