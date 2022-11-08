@@ -93,18 +93,16 @@ const monsterObject = {
         } else {
 
             let feature;
-            let newMonster; 
+            let newMonster;
             newMonster = { name: newName } // Lägg in det nya monstrets namn
 
             // Loopa igenom monsterFeatureType för att hämta alla selectade FeatureType värden
-            for(let i=0; i<monsterObject.monsterFeatureType.length; i++) {     
+            for(let i=0; i<monsterObject.monsterFeatureType.length; i++) {
                 feature = this.monsterFeatureType[i].toLowerCase(); // FeatureType konvertering från VERSALER till gemener
                 newMonster[feature] = select[i].value; // Lägg in de VALUES som selectats    
             }
-           
-       // Pusha det nya monsterObjektet till monsterObject.monster Arrayen.    
-       this.monster.push(newMonster); 
-       
+       // Pusha det nya monsterObjektet till monsterObject.monster Arrayen.
+       this.monster.push(newMonster);
         // Nollställ monster-name inför nästa inlägg
         document.querySelector("#monster-name").value = "";
 
@@ -115,16 +113,13 @@ const monsterObject = {
 
         showMonsterColors();
         showMonsterTypes();
-      
         }
 
-    }, 
+    },
     // Method to remove monster feature
     removeFeature: function(id) {
-    
        this.monsterFeatures[id] = []; // Reset feature to zero/undefined
-   
-    }, 
+    },
 
     monsterFeatures: [],
     monsterFeatureType: ['Color','Type', 'Weapon'],
@@ -210,12 +205,11 @@ function LoadSelectBoxes() {
         monsterFeatureType = monsterObject.monsterFeatureType[i]; // Sätt typ av Monster Feature
 
         label[i] = document.createElement("label");
-        label[i].setAttribute("class", "input-label");   
-        label[i].innerText = monsterFeatureType + ":"; // T ex Color: eller Type:     
+        label[i].setAttribute("class", "input-label");
+        label[i].innerText = monsterFeatureType + ":"; // T ex Color: eller Type:
 
         select[i] = document.createElement("select");
         select[i].setAttribute("id", `${monsterFeatureType}-select`);
-        
         option[i] = []; // Deklarera att option med indexet i också är en array
 
         // Ta fram <option> element baserat på vilka olika Features som finns i objektets array monsterFeatures
@@ -230,7 +224,7 @@ function LoadSelectBoxes() {
                 option[i][j].setAttribute("value", monsterFeature);
                 option[i][j].innerText = monsterFeature;
                 select[i].appendChild(option[i][j]); // Lägg den genererade optionen i select-elementet
-            }     
+            }
             //console.log(option[i][j]);
 
         }
@@ -249,20 +243,18 @@ function LoadSelectBoxes() {
     inputAddButton.setAttribute("id", "sub-btn");
     inputAddButton.setAttribute("class", "sub-btn");
     inputAddButton.setAttribute("type", "submit");
-    inputAddButton.setAttribute("value", "Add monster"); 
+    inputAddButton.setAttribute("value", "Add monster");
 
     let inputEditButton = document.createElement("input");
     inputEditButton.setAttribute("id", "edit-btn");
     inputEditButton.setAttribute("class", "sub-btn");
     inputEditButton.setAttribute("type", "submit");
-    inputEditButton.setAttribute("value", "Edit monster"); 
+    inputEditButton.setAttribute("value", "Edit monster");
 
     inputAddButton.addEventListener("click", function(e){
 
-        
         let newName = document.querySelector("#monster-name").value;
 
-          
 
         monsterObject.addMonster(newName, select);
         removeAllChildNodes(main);
@@ -272,14 +264,13 @@ function LoadSelectBoxes() {
       });
 
       addMonsterForm.appendChild(inputAddButton); // xxx
-      addMonsterForm.appendChild(inputEditButton); // xxx  
+      addMonsterForm.appendChild(inputEditButton); // xxx
 
       */
 
 
         // Listener för att Adda-monster
         inputAddButton.addEventListener("click", function(e) {
-            
             let newName = document.querySelector("#monster-name").value;
 
             monsterObject.addMonster(newName, select);
@@ -289,7 +280,6 @@ function LoadSelectBoxes() {
 
         });
 
-  
 }
 
 
@@ -316,9 +306,8 @@ function monsterFeatures() {
     for (let i=0; i<monsterObject.monsterFeatures.length; i++) {
 
         // Ladda enbart in Features som inte är tomma/borttagna
-        // Element av typen undefined ignoreras       
+        // Element av typen undefined ignoreras
         if (typeof monsterObject.monsterFeatures[i][0] !== "undefined") {
-            
             monsterFeature = monsterObject.monsterFeatures[i][1];
             id = monsterObject.monsterFeatures[i][0];
             monsterFeatureType = monsterObject.monsterFeatureType[id];
@@ -679,19 +668,14 @@ function filterMonstersByType(feature) {
 function filterMonsters(key, feature) {
 
     if (key=="type") {
-        
         monsterObject.filteredMonsters = filterMonstersByType(feature);
     } else if (key=="color") {
-       
     monsterObject.filteredMonsters = filterMonstersByColor(feature);
     }
 
-    
     // Kör monsterCards funktionen med hämtning från monsterObject.filteredMonsters 
     // istället för monsterObject.monster
     monsterCards('filteredMonsters');
-
-    
 
 }
 
