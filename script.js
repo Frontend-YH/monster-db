@@ -442,6 +442,7 @@ function monsterCards(monsterList) {
     for (let i = 0; i < monsterObject[monsterList].length; i++) {
 
         let article = document.createElement("article");
+        article.className="monsterInfoArticle";
         let h4 = document.createElement("h4");
         h4.className="monsterInfoTitle";
         let ul = document.createElement("ul");
