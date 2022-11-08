@@ -89,13 +89,13 @@ const monsterObject = {
         // a provided function on every element in the calling array.
         // Returns: A new array with each element being the result of the callback function.
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
-        if(newName. length === 0) {
-            alert('Monstret måste ha ett namn!')
+      
+        if(duplicate!==-1) { alert('Monstret finns redan! Välj ett annat namn!');}
+        else if(newName.length === 0) {
+            alert('Monstret måste ha ett namn!');
+
         }
-
-
-        if(duplicate!==-1) { alert('Monstret finns redan! Välj ett annat namn!');
-        } else {
+         else {
 
             let feature;
             let newMonster; 
