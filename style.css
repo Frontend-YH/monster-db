@@ -77,10 +77,6 @@ footer{
 
 
 }
-@viewport {
-    width: device-width ;
-    zoom: 1.0 ;
-  }
 /* Visar inga monster-detaljer på mobila enheter */
 .monsterInfoArticle{
     border: 2px solid lightgray;
