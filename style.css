@@ -122,7 +122,7 @@ footer{
     grid-area: add-monster;
     align-items: center;
 
-    border: 2px solid #000;
+    border:3px solid #fff;
       /* vh används i höjdled och vw i sidled för att skala med mindre enheter */
     /* padding: 1vh 2vw 1vh 2vw; */
     background-color: #50577A;
@@ -135,7 +135,7 @@ footer{
       flex-direction: column;
       grid-area: add-monster;
       align-items: center;
-      border: 3px solid black;
+      border: 3px solid #ffffff;
         /* vh används i höjdled och vw i sidled för att skala med mindre enheter */
       padding: 1vh 2vw 1vh 2vw;
       background-color: #50577A;
