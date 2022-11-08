@@ -44,6 +44,7 @@ footer{
     background-color: #404258;
     color: white;
 }
+
 .add-header{
     text-align: center;
 
@@ -76,11 +77,15 @@ footer{
 
 
 }
-
 /* Visar inga monster-detaljer på mobila enheter */
+.monsterInfoArticle{
+    border: 2px solid lightgray;
+    padding: 0 0 0 10%;
+}
 .monsterInfo {
     display: none;
     margin: 0px;
+    padding: 0 0 10% 10%;
 }
 .monsterInfoTitle{
     padding: 0 0 0 5%;
@@ -97,7 +102,8 @@ footer{
     margin: 0.5vh;
     background-color: #474E68;
     color: white;
-    row-gap: 5%;
+    row-gap: 10%;
+    column-gap: 10%;
     overflow-y: auto;
 
     padding-top: 3vh;
@@ -113,7 +119,7 @@ footer{
     grid-area: add-monster;
     align-items: center;
 
-    border: 3px solid black;
+    border: 2px solid #000;
       /* vh används i höjdled och vw i sidled för att skala med mindre enheter */
     /* padding: 1vh 2vw 1vh 2vw; */
     background-color: #50577A;
