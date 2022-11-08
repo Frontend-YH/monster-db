@@ -1,6 +1,7 @@
 /* Ändrar textfonten i hela html filen */
 html{
     font-family: 'Josefin Sans', sans-serif;
+
 }
 /* Skapar ett grid som utgår från template-area */
 body{
@@ -21,7 +22,6 @@ body{
     'monster-color monster-color'
     'monster-color monster-color'
     'footer footer';
-   
 
 }
 /*  */
@@ -45,15 +45,13 @@ footer{
     background-color: #404258;
     color: white;
 }
+
 .add-header{
-    
     text-align: center;
-    
 
 }
 
 .add-monster-form {
-  
     display: grid;
     grid-area: form;
     padding: 13px 20px 0 20px;
@@ -78,14 +76,22 @@ footer{
 
 .add-monster-div {
 
-    
 
 }
-
 /* Visar inga monster-detaljer på mobila enheter */
+.monsterInfoArticle{
+    border: 2px solid lightgray;
+    border-radius: 25px;
+    padding: 0 0 0 10%;
+    background-color: #404258;
+}
 .monsterInfo {
     display: none;
     margin: 0px;
+    padding: 0 0 10% 10%;
+}
+.monsterInfoTitle{
+    padding: 0 0 0 5%;
 }
 
 .monster-showcase {
@@ -93,24 +99,25 @@ footer{
     display: grid;
     grid-area: monster-showcase;
     grid-template-columns: repeat(2,1fr);
-    
     border: 3px solid black;
+
     
     max-height: 90vh;
     min-height: 90vh;
     
+
     /* max-height: 66vh; */
     margin: 0.5vh;
     background-color: #474E68;
     color: white;
-    row-gap: 5%;
+    row-gap: 10%;
+    column-gap: 10%;
     overflow-y: auto;
 
     padding-top: 3vh;
     padding-right: 7vh;
     padding-left: 7vh;
     padding-bottom: 3vh;
-    
 }
 
 .add-monster {
@@ -120,14 +127,11 @@ footer{
     grid-area: add-monster;
     align-items: center;
 
-    border: 3px solid black;
+    border: 2px solid #000;
       /* vh används i höjdled och vw i sidled för att skala med mindre enheter */
     /* padding: 1vh 2vw 1vh 2vw; */
-    
     background-color: #50577A;
-    color: white;   
-    
-    
+    color: white;
 }
 
 .edit-monsters {
@@ -139,11 +143,9 @@ footer{
       border: 3px solid black;
         /* vh används i höjdled och vw i sidled för att skala med mindre enheter */
       padding: 1vh 2vw 1vh 2vw;
-      
       background-color: #50577A;
       color: white;   
       display: none;
-      
   }
 
 
@@ -206,7 +208,6 @@ footer{
 
 /* Edit monsters, monster-features checkboxes*/
 .mfeatures-checkboxes {
-    
     margin-right: 3vh;
     margin-left: 1vw;
 
@@ -236,14 +237,14 @@ input[type=text] {
     font-size: 20px;
     margin-left: 1.4vw;
     margin-right: 1.4vw;
-    margin-top: 0vh;   
+    margin-top: 0vh;
     margin-bottom: 6vh;
-    border-radius: 8px; 
+    border-radius: 8px;
 
     padding-left: 0.5vw;
     padding-right: 0.5vw;
     padding-top: 1vh;
-    padding-bottom: 1vh;        
+    padding-bottom: 1vh;
 
   }
 
@@ -265,20 +266,19 @@ input[type=text] {
     font-size: 20px;
     margin-left: 1.4vw;
     margin-right: 1.4vw;
-    margin-top: 0vh;   
+    margin-top: 0vh;
     margin-bottom: 6vh;
-    border-radius: 8px; 
+    border-radius: 8px;
 
     padding-left: 0.5vw;
     padding-right: 0.5vw;
     padding-top: 1vh;
-    padding-bottom: 1vh;      
+    padding-bottom: 1vh;
   }
 
 
 
 .sub-btn {
-   
     margin-left: 1.4vw;
     margin-right: 1.4vw;
     margin-top: 2vh;
@@ -297,7 +297,6 @@ input[type=text] {
         background-color: #ffffff;
         border-radius: 8px;
         border: 1px solid #666eff;
-        
         cursor: pointer;
         color:#333;
         font-family: Arial;
@@ -385,7 +384,6 @@ background-color: #ffffff46;
 
     'footer footer footer';
 
-    
 
     }
 
@@ -399,13 +397,11 @@ background-color: #ffffff46;
 
     /* I desktop läge har vi bara 1 grid kolumn */
     .add-monster-form {
-      
         padding: 0;
         margin: 0;
         grid-gap: 0px;
         display: grid;
         grid-template-columns: 1fr;
-    
     }
     /* Add monster knappen ska bara täcka 1 kolumn i Desktop-mode */
     .sub-btn {   
