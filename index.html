@@ -10,11 +10,11 @@
     <!-- Title -->
     <title>Monster DB 👹</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="Frontend-YH/monster-db/favicon/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="Frontend-YH/monster-db/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="Frontend-YH/monster-db/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="Frontend-YH/monster-db/favicon/favicon-16x16.png">
-    <link rel="manifest" href="Frontend-YH/monster-db/favicon/site.webmanifest">
+    <link rel="icon" type="image/x-icon" href="monster-db/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="monster-db/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="monster-db/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="monster-db/favicon/favicon-16x16.png">
+    <link rel="manifest" href="monster-db/favicon/site.webmanifest">
     <!-- Google text-font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,15 +37,17 @@
 <h2 class="add-header">Add monster</h2>
 <form class="add-monster-form">
     <div class="add-monster-div">
-    <label class="input-label">Monster name:</label><input type="text" id="monster-name" name="monster-name" placeholder="create a name...">
+     <label class="input-label">Monster name:</label><input type="text" id="monster-name" name="monster-name" placeholder="create a name...">
   </div>
     <div class="monster-selects">
 
     </div>
-
+    <div class="monster-img-div">
+      <label class="input-label">Image URL:</label><input type="text" id="monster-image" name="monster-image" placeholder="put image url here...">
+    </div>
 <!-- Tidigare pre-JS kod (numera replikerad i JSn för mer dynamik )-->
 <!--
-<label class="input-label">Color:</label> <br>
+<label class="input-label">Color:</label><br>
     <select name="color" id="color-select">
       <option value="none" selected disabled hidden>Pick a color...</option>
       <option value="Yellow">Yellow</option>
@@ -78,7 +80,13 @@
         <div class="monster-features">
 
         </div>
-        <input id="sub-btn" class="sub-btn" type="submit" value="Save changes" DISABLED>
+        <div style="padding-top: 20px;">
+          <label class="input-label">New Feature Type:</label>
+         <select id="edit-ft-select"></select> 
+        <label class="input-label">New Feature Name:</label><input type="text" id="edit-ft-name" name="feature-name" placeholder="new feature name...">
+        <label class="input-label">Feature color code:</label><input type="text" id="edit-ft-ccode" name="edit-ft-ccode" placeholder="color code" value="#FFFFFF" maxlength="7">
+      </div>
+        <input id="edit-btn3" class="sub-btn" type="submit" value="Add feature">
         <input id="edit-btn2" class="sub-btn" type="submit" value="Add monster">
         
       </form>

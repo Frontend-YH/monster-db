@@ -23,8 +23,19 @@ let monsterFeaturesDiv = document.querySelector(".monster-features");
 let mfeaturesCheckboxes = document.querySelectorAll(".mfeatures-checkboxes");
 
 let addMonsterForm = document.querySelector(".add-monster-form"); // Add Monster Form sektionen
-let monsterSelects= document.querySelector(".monster-selects"); // Add Monster Selectbox DIV
+let monsterSelects = document.querySelector(".monster-selects"); // Add Monster Selectbox DIV
 let inputAddButton= document.querySelector("#sub-btn"); // Add Monster Selectbox DIV
+
+let editFeatureTypeSelect = document.querySelector("#edit-ft-select"); // Add Edit-section Feature Type Selectbox
+let editFeatureName = document.querySelector("#edit-ft-name"); // Feature Name input field
+let editFeatureSubmit = document.querySelector("#edit-btn3"); // Add new feature submit button
+let editColorCode = document.querySelector("#edit-ft-ccode"); // Add new feature Color Code
+
+// Dessa används främst i LoadSelectBoxes() funktionen till olika selectboxar
+let select = []; // Deklarera en select array i GLOBAL SCOPE
+let option = []; // Deklarera en option array i GLOBAL SCOPE
+let label = []; // Deklarera en label array i GLOBAL SCOPE
+let img = document.querySelector("#monster-image"); // Add new monster image url (in nput field)
 
 // MonsterObjekt med en array som innehåller monster , samt en addMonster metod
 const monsterObject = {
@@ -83,8 +94,8 @@ const monsterObject = {
     filteredMonsters: [{}],
 
  /* --------Funktion för att lägga till monster samt kolla så inte användaren lägger till dubletter------- */
-    addMonster: function(newName, select) {
-
+    addMonster: function(newName, select, img) {
+        
         /*
         let newName = document.querySelector("#monster-name").value;
         let newColor = document.querySelector("#color-select").value;
@@ -97,8 +108,15 @@ const monsterObject = {
         // a provided function on every element in the calling array.
         // Returns: A new array with each element being the result of the callback function.
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
-        if(duplicate!==-1) { alert('Monstret finns redan! Välj ett annat namn!');
-        } else {
+
+      
+        if(duplicate!==-1) { alert('Monstret finns redan! Välj ett annat namn!'); }
+        else if(newName.length === 0) {
+            alert('Monstret måste ha ett namn!');
+
+        }
+         else {
+
 
             let feature;
             let newMonster;
@@ -110,27 +128,41 @@ const monsterObject = {
                 feature = this.monsterFeatureType[i].toLowerCase(); // FeatureType konvertering från VERSALER till gemener
                 newMonster[feature] = select[i].value; // Lägg in de VALUES som selectats    
             }
-           
+
+            newMonster['img'] = img; // the image src (url or local filepath) 
+
        // Pusha det nya monsterObjektet till monsterObject.monster Arrayen.
        this.monster.push(newMonster);
        console.log(this.monster);
         // Nollställ monster-name inför nästa inlägg
         document.querySelector("#monster-name").value = "";
 
-        /* // Ej nollställda i dagsläget
-        document.querySelector("#color-select").value = "";
-        document.querySelector("#monster-type").value = "";
-            */
+    
 
         showMonsterColors();
         showMonsterTypes();
+
+            console.log(monsterObject.monster);
+
         }
 
     },
     // Method to remove monster feature
     removeFeature: function(id) {
        this.monsterFeatures[id] = []; // Reset feature to zero/undefined
-    },
+
+    }, 
+    // Method to add monster feature
+    addFeature: function(feature, ftid, colorcode) {
+    
+        let featureArr = [];
+        featureArr[0] = Number(ftid); // Feature Type ID converted to number
+        featureArr[1] = feature; // Feature Name
+        featureArr[2] = colorcode; // Feature Color Code
+
+        this.monsterFeatures.push(featureArr); // Push new feature to monsterFeatures Array
+        
+     },    
 
     monsterFeatures: [],
     monsterFeatureType: ['Color','Type', 'Weapon'],
@@ -199,14 +231,13 @@ monsterObject.monsterFeatures[9][2] = '#ffffff'; // ny temporär Shotgun
 monsterObject.monsterFeatures[10][2] = '#ffffff'; // ny temporär Rocket Launcher
 monsterObject.monsterFeatures[11][2] = '#ffffff'; // XXL
 
+
+
 function LoadSelectBoxes() {
 
-    let select = []; // Deklarera en select array
-    let option = []; // Deklarera en option array
-    let label = []; // Deklarera en label array
     let monsterFeatureType;
     let monsterFeature;
-    let typid;
+    let typid; 
 
     // Ta fram SELECT-boxar baserat på vilka olika Feature Typer som finns i objektets array monsterFeatureType.
     // Default är Color och Type. Ta även fram tillhörande Labels.
@@ -236,7 +267,8 @@ function LoadSelectBoxes() {
                 option[i][j].innerText = monsterFeature;
                 select[i].appendChild(option[i][j]); // Lägg den genererade optionen i select-elementet
             }
-            //console.log(option[i][j]);
+           
+
 
         }
 
@@ -245,6 +277,28 @@ function LoadSelectBoxes() {
         monsterSelects.appendChild(select[i]); // xxx
 
     }
+
+
+    function loadFeatureTypeSelectBox() {
+
+        // Ta fram <option> element baserat på vilka olika Features som finns i objektets array monsterFeatureTypes
+        // Använd map() för att skapa en array där <option> läggs till tillsammans med FeatureType namn.
+       
+        // Med Arrow-Function och bara value: let option = monsterObject.monsterFeatureType.map(n => `<option value="${n}">${n}</option>`);
+
+        let option = monsterObject.monsterFeatureType.map(function(value, index) {
+            return `<option value=${index}>${value}</option>`;
+        });
+
+
+        let html = option.join(''); // Slå ihop arrayens olika element till en ensam sträng
+
+        // Lägg in den färdiga strängen html mellan <select> och </select>
+        editFeatureTypeSelect.innerHTML = html;
+
+    }
+
+    loadFeatureTypeSelectBox();
 
     /*
 
@@ -262,7 +316,7 @@ function LoadSelectBoxes() {
     inputEditButton.setAttribute("type", "submit");
     inputEditButton.setAttribute("value", "Edit monster");
 
-    inputAddButton.addEventListener("click", function(e){
+    inputAddButton.addEventListener("click", function(e) {
 
         let newName = document.querySelector("#monster-name").value;
 
@@ -282,18 +336,25 @@ function LoadSelectBoxes() {
 
         // Listener för att Adda-monster
         inputAddButton.addEventListener("click", function(e) {
+            
+
             let newName = document.querySelector("#monster-name").value;
 
-            monsterObject.addMonster(newName, select);
+            monsterObject.addMonster(newName, select, img.value);
+
             removeAllChildNodes(main);
             monsterCards('monster'); // Ladda in monsterCards igen
-            e.preventDefault();
+
+                       // Stoppa default event
+                       e.preventDefault();
+
+                       // Detta löser bugg med 2+ onödiga alert-popups. Vetefan hur. LOL.
+                       e.stopImmediatePropagation();
+       
 
         });
 
 }
-
-
 
 
 // Ladda in alla Select Boxes i Add monster
@@ -301,6 +362,9 @@ LoadSelectBoxes();
 
 let btn = document.querySelector('#sub-btn');
 let editbtn = document.querySelector('#edit-btn');
+
+
+
 
 function monsterFeatures() {
 
@@ -370,17 +434,6 @@ monsterFeatures();
 
 
 
-// redigera monster och kunna lägga till antal tentakler, antal ögon, antal horn och antal armar
-
-// hämtar alla monster och sorterar dom på färger
-/*  function monsterByColor(monsterObject.monster.color) {
-
-} */
-// hämtar alla monster och sorterar dom efter typ
-/* typeofMonster: function(monsterObject.monster.type) {
-}
-editmonster: function() {
-} */
 
 // Funktion för att ta bort samtliga barn-noder i valfritt container-element
 function removeAllChildNodes(parent) {
@@ -389,25 +442,7 @@ function removeAllChildNodes(parent) {
     }
 }
 
-/*
-function removeAllButFirstChildNode(parent) {
 
-    while (parent.childNodes.length > 3) {
-        parent.removeChild(parent.lastChild);
-    }
-}
-*/
-
-// Lägger man till ett till monster så läggs det till och uppdaterar main
-/* // Kod numera inflyttad i LoadSelectBoxes för dynamisk generering
-btn.addEventListener("click", function(e){
-
-    monsterObject.addMonster();
-    removeAllChildNodes(main);
-    monsterCards('monster'); // Ladda in monsterCards igen
-    e.preventDefault();
-  });
-  */
 
 
 
@@ -421,6 +456,48 @@ editbtn.addEventListener("click", function(e) {
   });
 
 
+  
+// Listener för att lägg till new Feature med monsterObject.addFeature metoden
+editFeatureSubmit.addEventListener("click", function(e) {
+
+     // Stoppa default event
+     e.preventDefault();
+
+     e.stopImmediatePropagation();
+
+   let ftid = editFeatureTypeSelect.value; // Id på vald Feature Typ (selectbox)
+   let feature = editFeatureName.value; // Namn-input-fältet
+   let colorcode = editColorCode.value; // Color code input-fältet.
+
+   // IF SATS med indexOf() funktionen, för att:
+   // 1. ta reda på om det redan finns en Feature vid valt namn och om så är fallet stoppa inlägget.
+   // 2. ta reda på om input-fältet är tomt, och isåfall stoppa inlägget.
+   let duplicate = monsterObject.monsterFeatures.indexOf(feature);
+
+   if(duplicate!==-1) { alert('En Feature med det namnet finns redan. Välj ett annat namn!');
+   } else if(feature.length === 0) {
+
+            alert('Du har inte angivit något namn på Featuren!');
+
+    } else {
+
+        monsterObject.addFeature(feature, ftid, colorcode); 
+    
+        // Töm monster-selects SelectBox Div
+        removeAllChildNodes(monsterSelects);
+
+        // Ladda in alla Select Boxes i Add monster pånytt
+        LoadSelectBoxes();  
+
+        // Ladda in alla monsterFeatures i Edit-funktionen pånytt
+        monsterFeatures();
+
+        // Töm Feature Name fält
+        editFeatureName.value = "";
+
+    }
+
+});
 
   
 
@@ -474,8 +551,7 @@ function monsterCards(monsterList) {
         i vårat fall samlar vi varje rads innehåll i <li> och appendar sen dem till ett <ul> element */
         Object.keys(monsterObject[monsterList][i]).forEach(key => {
             
-            // Hämta inte namn-raden som <li>
-            
+
             if (key!=='name' && key!=='img') {
                 li = document.createElement("li");
                 li.innerHTML = `${key}: ${getFeatureColor(monsterObject[monsterList][i][key])}`;
@@ -494,6 +570,8 @@ function monsterCards(monsterList) {
 
         // Lägg namnet på monstret i en H4 rubrik
         h4.innerText = monsterObject[monsterList][i]['name'];
+
+        
 
         main.appendChild(article); // Lägg in <article> i <main>
         article.appendChild(div1);
@@ -523,39 +601,7 @@ function getFeatureColor(value) {
     return `<span style="color: ${color};">${value}</span>`;
 }
 
-/* // GAMLA icke-dynamiska VERSIONEN AV monsterCards
 
-function monsterCards(monsterList) {
-
-    removeAllChildNodes(main);
-
-    // Loopar igenom
-    for (let i = 0; i < monsterObject[monsterList].length; i++) {
-        let article = document.createElement("article");
-        let h4 = document.createElement("h4");
-
-        let ul = document.createElement("ul");
-        let li1 = document.createElement("li");
-        let li2 = document.createElement("li");
-
-        // 2022-11-03 15:56 Lägger till class på UL för toggle historia
-        ul.className = "monsterInfo";
-
-        h4.innerText = monsterObject[monsterList][i]['name'];
-        li1.innerHTML = `Color: ${monsterObject[monsterList][i]['color']}`;
-        li2.innerHTML = `Type: ${monsterObject[monsterList][i]['type']}`;
-        main.appendChild(article);
-        article.appendChild(h4);
-        article.appendChild(ul);
-        ul.appendChild(li1);
-        ul.appendChild(li2);
-
-                
-
-      }
-    return true;
-
-} */
 
 monsterCards('monster');
 
@@ -650,25 +696,6 @@ showMonsterColors();
 
 
 
-
-
-
-
-
-
-// ################################ FILTER MONSTERS BY COLOR ########################################
-/*
-// Returnar antalet för en viss färg.
-function filterMonstersByColor(feature) {
-    let t = ({color}) => color === feature;
-	let filtered = monsterObject.monster.filter(t);	
-	return filtered;
-}
-monsterObject.filteredMonsters = filterMonstersByColor('Pink');
-
-monsterCards('filteredMonsters');
-*/
-// ##################################################################################################
 
 
 
