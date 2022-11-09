@@ -109,9 +109,9 @@ max-height: fit-content;
     border: 3px solid black;
 
     
-    max-height: 130vh;
-    min-height: 130vh;
-    
+    max-height: 170vh;
+    min-height: 170vh;
+    overflow-y: hidden;
 
     /* max-height: 66vh; */
     margin: 0.5vh;
