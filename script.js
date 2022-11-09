@@ -29,6 +29,7 @@ let inputAddButton= document.querySelector("#sub-btn"); // Add Monster Selectbox
 let editFeatureTypeSelect = document.querySelector("#edit-ft-select"); // Add Edit-section Feature Type Selectbox
 let editFeatureName = document.querySelector("#edit-ft-name"); // Feature Name input field
 let editFeatureSubmit = document.querySelector("#edit-btn3"); // Add new feature submit button
+let editFeatureCategorySubmit = document.querySelector("#edit-btn4"); // Add new feature category button
 let editColorCode = document.querySelector("#edit-ft-ccode"); // Add new feature Color Code
 
 // Dessa används främst i LoadSelectBoxes() funktionen till olika selectboxar
@@ -488,6 +489,19 @@ editFeatureSubmit.addEventListener("click", function(e) {
     }
 
 });
+
+
+// Listener för att lägg till new Feature Cateogory med monsterObject.addFeatureCategory metoden
+editFeatureCategorySubmit.addEventListener("click", function(e) {
+
+    // Stoppa default event
+    e.preventDefault();
+
+    e.stopImmediatePropagation();
+
+});
+
+
 
   
 
