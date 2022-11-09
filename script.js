@@ -31,41 +31,49 @@ const monsterObject = {
     monster: [
         {
             name: 'Tentacel',
+            img: 'https://i.ibb.co/QDZqgBH/monster.png',
             color: 'Yellow',
             type: 'Mid',
         },
         {
             name: 'Basilisk',
+            img: 'https://i.ibb.co/BLnVDCn/sasquatch-g25d3d442f-640.png',
             color: 'Green',
             type: 'Large',
         },
         {
             name: 'Beelzebub',
+            img: 'https://i.ibb.co/KhThBfW/werewolf-g8570f1611-640.png',
             color: 'Black',
             type: 'Small',
         },
         {
             name: 'Automatons',
+            img: 'https://i.ibb.co/9s1hvzq/monster-img4-removebg-preview.png',
             color: 'Pink',
             type: 'Large',
         },
         {
             name: 'Husmonstret',
+            img: 'https://i.ibb.co/W2jN8tT/monster-img7.png',
             color: 'Pink',
             type: 'Mid',
         },
         {
             name: 'Skabbjörnen',
+            img: 'https://i.ibb.co/K0TsPsm/monster-img8-removebg-preview.png',
             color: 'Green',
             type: 'Mid',
         },
         {
             name: 'Crawler',
+            img: 'https://i.ibb.co/K5sk7NQ/monster-img.png',
             color: 'Green',
             type: 'Small',
         },
         {
             name: 'Orb',
+            img: 'https://i.ibb.co/Mgkkw6g/monster-img2.png',
             color: 'Brown',
             type: 'Mid',
         },
@@ -94,15 +102,18 @@ const monsterObject = {
 
             let feature;
             let newMonster;
-            newMonster = { name: newName } // Lägg in det nya monstrets namn
-
+            newMonster = { name: newName,
+            img: 'https://picsum.photos/200/300'} // Lägg in det nya monstrets namn
+            
             // Loopa igenom monsterFeatureType för att hämta alla selectade FeatureType värden
             for(let i=0; i<monsterObject.monsterFeatureType.length; i++) {
                 feature = this.monsterFeatureType[i].toLowerCase(); // FeatureType konvertering från VERSALER till gemener
                 newMonster[feature] = select[i].value; // Lägg in de VALUES som selectats    
             }
+           
        // Pusha det nya monsterObjektet till monsterObject.monster Arrayen.
        this.monster.push(newMonster);
+       console.log(this.monster);
         // Nollställ monster-name inför nästa inlägg
         document.querySelector("#monster-name").value = "";
 
@@ -442,27 +453,37 @@ function monsterCards(monsterList) {
     for (let i = 0; i < monsterObject[monsterList].length; i++) {
 
         let article = document.createElement("article");
-        article.className="monsterInfoArticle";
+        article.className="monster-info-article";
+        let div1=document.createElement("div");
+        div1.className="monster-text-div";
+        let div2=document.createElement("div");
+        div2.className="monster-info-div";
         let h4 = document.createElement("h4");
-        h4.className="monsterInfoTitle";
+        h4.className="monster-info-title";
         let ul = document.createElement("ul");
-        ul.className = "monsterInfo";
+        ul.className = "monster-info";
         let li;
+        let img=document.createElement("img");
+        img.className="monster-info-img";
 
+       
         // Loopar igenom varje enskilt key-value par med Object.keys och .forEach
         // T ex monsterObject.monster[0]   color: 'Yellow'
         /* forEach betyder helt enkelt bara att vi förVarje inlägg/rad vi passerar  
         (t ex color: 'Yellow' följt av nästa rad med type: 'Small') kör viss kod,
         i vårat fall samlar vi varje rads innehåll i <li> och appendar sen dem till ett <ul> element */
         Object.keys(monsterObject[monsterList][i]).forEach(key => {
-        
+            
             // Hämta inte namn-raden som <li>
-            if (key!=='name') {
+            
+            if (key!=='name' && key!=='img') {
                 li = document.createElement("li");
                 li.innerHTML = `${key}: ${getFeatureColor(monsterObject[monsterList][i][key])}`;
                 ul.appendChild(li);
             }
+           
         });
+        img.setAttribute("src", monsterObject[monsterList][i]['img']);
 
         // Object.keys returnerar en Array med samtliga nycklar i objektet. I detta fall t ex color, type osv.
         // Med color, type osv så kan vi accessa innehållet i dessa nycklar med: monsterObject.monster[i][key]
@@ -475,9 +496,12 @@ function monsterCards(monsterList) {
         h4.innerText = monsterObject[monsterList][i]['name'];
 
         main.appendChild(article); // Lägg in <article> i <main>
-        article.appendChild(h4); // Lägg in <h4> i <article>
-        article.appendChild(ul); // Lägg in <ul> i <article> efter <h4>
-
+        article.appendChild(div1);
+        article.appendChild(div2);
+        div1.appendChild(h4); // Lägg in <h4> i <article>
+        div1.appendChild(ul); // Lägg in <ul> i <article> efter <h4>
+        div2.appendChild(img);
+        
     }
 
     return true;
