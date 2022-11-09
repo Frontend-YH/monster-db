@@ -122,7 +122,8 @@ const monsterObject = {
                 newMonster[feature] = select[i].value; // Lägg in de VALUES som selectats    
             }
 
-            newMonster['img'] = img; // the image src (url or local filepath) 
+            // Om img-fältet inte är tomt, lägg till URLen där i det nya monstret
+            if (img!=='') { newMonster['img'] = img; } // the image src (url or local filepath) 
 
        // Pusha det nya monsterObjektet till monsterObject.monster Arrayen.
             this.monster.push(newMonster);
@@ -617,7 +618,6 @@ function monsterCards(monsterList) {
         // Lägg namnet på monstret i en H4 rubrik
         h4.innerText = monsterObject[monsterList][i]['name'];
 
-    
         main.appendChild(article); // Lägg in <article> i <main>
         article.appendChild(div1);
         article.appendChild(div2);
