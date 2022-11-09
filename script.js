@@ -35,7 +35,7 @@ let editColorCode = document.querySelector("#edit-ft-ccode"); // Add new feature
 let select = []; // Deklarera en select array i GLOBAL SCOPE
 let option = []; // Deklarera en option array i GLOBAL SCOPE
 let label = []; // Deklarera en label array i GLOBAL SCOPE
-
+let img = document.querySelector("#monster-image"); // Add new monster image url (in nput field)
 
 // MonsterObjekt med en array som innehåller monster , samt en addMonster metod
 const monsterObject = {
@@ -86,7 +86,7 @@ const monsterObject = {
     filteredMonsters: [{}],
 
  /* --------Funktion för att lägga till monster samt kolla så inte användaren lägger till dubletter------- */
-    addMonster: function(newName, select) {
+    addMonster: function(newName, select, img) {
         
         /*
         let newName = document.querySelector("#monster-name").value;
@@ -102,7 +102,7 @@ const monsterObject = {
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
       
-        if(duplicate!==-1) { alert('Monstret finns redan! Välj ett annat namn!');}
+        if(duplicate!==-1) { alert('Monstret finns redan! Välj ett annat namn!'); }
         else if(newName.length === 0) {
             alert('Monstret måste ha ett namn!');
 
@@ -119,18 +119,21 @@ const monsterObject = {
                 feature = this.monsterFeatureType[i].toLowerCase(); // FeatureType konvertering från VERSALER till gemener
                 newMonster[feature] = select[i].value; // Lägg in de VALUES som selectats    
             }
+
+            newMonster['img'] = img; // the image src (url or local filepath) 
+
        // Pusha det nya monsterObjektet till monsterObject.monster Arrayen.
        this.monster.push(newMonster);
         // Nollställ monster-name inför nästa inlägg
         document.querySelector("#monster-name").value = "";
 
-        /* // Ej nollställda i dagsläget
-        document.querySelector("#color-select").value = "";
-        document.querySelector("#monster-type").value = "";
-            */
+    
 
         showMonsterColors();
         showMonsterTypes();
+
+            console.log(monsterObject.monster);
+
         }
 
     },
@@ -327,7 +330,8 @@ function LoadSelectBoxes() {
 
             let newName = document.querySelector("#monster-name").value;
 
-            monsterObject.addMonster(newName, select);
+            monsterObject.addMonster(newName, select, img.value);
+
             removeAllChildNodes(main);
             monsterCards('monster'); // Ladda in monsterCards igen
 
@@ -531,7 +535,7 @@ function monsterCards(monsterList) {
         Object.keys(monsterObject[monsterList][i]).forEach(key => {
         
             // Hämta inte namn-raden som <li>
-            if (key!=='name') {
+            if (key!=='name' && key!=='img') {
                 li = document.createElement("li");
                 li.innerHTML = `${key}: ${getFeatureColor(monsterObject[monsterList][i][key])}`;
                 ul.appendChild(li);
@@ -547,6 +551,8 @@ function monsterCards(monsterList) {
 
         // Lägg namnet på monstret i en H4 rubrik
         h4.innerText = monsterObject[monsterList][i]['name'];
+
+        
 
         main.appendChild(article); // Lägg in <article> i <main>
         article.appendChild(h4); // Lägg in <h4> i <article>
