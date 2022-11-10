@@ -6,10 +6,12 @@ html{
 /* Skapar ett grid som utgår från template-area */
 body{
     margin: 0;
+    overflow-x: hidden;
     font-size: 3.5vh;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr min-content;
+    overflow-x: hidden;
     grid-template-areas:
     'header'
     'monster-showcase'
@@ -35,6 +37,7 @@ header{
     margin: 2px;
     background-color: #404258;
     color: white;
+    font-size: medium;
 }
 footer{
     text-align: center;
@@ -62,10 +65,10 @@ h4{
     grid-area: form;
     padding: 13px 20px 0 20px;
     grid-gap: 1px;
-    width: 69vh;
+    width: 100%;
     margin: auto;
     padding-bottom: 2vh;
-    height: 65.5vh;
+    height: 100%;
     justify-items: center; 
 
     grid-template-columns: 1fr 1fr;
@@ -111,9 +114,11 @@ grid-column: 2;
 margin: 0;
 padding: 0;
 max-height: fit-content;
-
+display: none;
 }
-
+.monster-info{
+    display: none;
+}
 .monster-showcase {
 
     display: grid;
@@ -145,9 +150,8 @@ max-height: fit-content;
 }
 
 .monster-info-title {
-
-padding-left: 1vw;
-margin: 0;
+    padding-left: 1vw;
+    margin: 0;
 
 
 }
