@@ -185,6 +185,7 @@ monsterObject.monsterFeatures[8] = []; // ny temporär
 monsterObject.monsterFeatures[9] = []; // ny temporär
 monsterObject.monsterFeatures[10] = []; // ny temporär
 monsterObject.monsterFeatures[11] = []; // XXL
+monsterObject.monsterFeatures[12] = []; // Orange
 
 // Feature-Typ nycklar (0 = Color, 1 = Typ osv)
 monsterObject.monsterFeatures[0][0] = 0; // Yellow
@@ -192,6 +193,7 @@ monsterObject.monsterFeatures[1][0] = 0; // Pink
 monsterObject.monsterFeatures[2][0] = 0; // Brown
 monsterObject.monsterFeatures[3][0] = 0; // Black
 monsterObject.monsterFeatures[4][0] = 0; // Green
+monsterObject.monsterFeatures[12][0] = 0; // Orange
 
 monsterObject.monsterFeatures[5][0] = 1; // Small
 monsterObject.monsterFeatures[6][0] = 1; // Mid
@@ -208,6 +210,7 @@ monsterObject.monsterFeatures[1][1] = 'Pink';
 monsterObject.monsterFeatures[2][1] = 'Brown';
 monsterObject.monsterFeatures[3][1] = 'Black';
 monsterObject.monsterFeatures[4][1] = 'Green';
+monsterObject.monsterFeatures[12][1] = 'Orange';
 
 monsterObject.monsterFeatures[5][1] = 'Small';
 monsterObject.monsterFeatures[6][1] = 'Mid';
@@ -231,7 +234,7 @@ monsterObject.monsterFeatures[8][2] = '#ffffff'; // ny temporär 'Railgun
 monsterObject.monsterFeatures[9][2] = '#ffffff'; // ny temporär Shotgun
 monsterObject.monsterFeatures[10][2] = '#ffffff'; // ny temporär Rocket Launcher
 monsterObject.monsterFeatures[11][2] = '#ffffff'; // XXL
-
+monsterObject.monsterFeatures[12][2] = '#FF7F27'; // Orange
 
 
 
@@ -835,3 +838,9 @@ function filterMonsters(key, feature) {
 
 }
 
+
+   
+
+
+  
+ 
