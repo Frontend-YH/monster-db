@@ -128,9 +128,7 @@ max-height: fit-content;
 }
 .monster-info-img{
    /*  display: inline-block; */
-    display: block;
-    width: 75%;
-    padding: 30px 0 0 0;
+    display: none;
 }
 
 .add-monster {
@@ -380,9 +378,8 @@ background-color: #ffffff46;
 
 
 
-
 /* -----Media attribut för dator------ */
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 1025px) {
     body {
 
     grid-template-columns: repeat(3,1fr);
@@ -422,7 +419,12 @@ background-color: #ffffff46;
     .sub-btn {   
         grid-column: 1 / 2;
     }
-
+    .monster-info-img{
+        /*  display: inline-block; */
+         display: block;
+         width: 75%;
+         padding: 30px 0 0 0;
+     }
 }
 
 
