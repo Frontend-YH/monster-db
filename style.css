@@ -22,6 +22,7 @@ body{
     'monster-color monster-color'
     'monster-color monster-color'
     'footer footer';
+    
 
 }
 /*  */
@@ -86,21 +87,38 @@ h4{
 }
 /* Visar inga monster-detaljer på mobila enheter */
 .monster-info-article{
+    
     display:grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.3fr 0.7fr;
+   
+    
     border: 2px solid lightgray;
+    gap: 8%;
     border-radius: 25px;
     /* padding: 0 0 0 10%; */
     background-color: #404258;
+    padding-right: 30px;
+    padding-top: 30px; 
+    padding-bottom: 30px;  
+    padding-left: 18px;
+    height: 23vh;
+    
+   
 }
-.monster-text-div{
-padding:10% 15% 10% 10%;
-grid-column:1/2;
+.monster-text-div {
+/* padding:10% 15% 10% 10%; */
+grid-column: 1;
+
 }
+
 .monster-info-div{
 grid-column: 2;
+margin: 0;
+padding: 0;
 max-height: fit-content;
+
 }
+
 .monster-showcase {
 
     display: grid;
@@ -109,16 +127,16 @@ max-height: fit-content;
     border: 3px solid black;
 
     
-    max-height: 100vh;
-    min-height: 100vh;
-    
+   
+    min-height: 148vh;
+   
 
     /* max-height: 66vh; */
     margin: 0.5vh;
     background-color: #474E68;
     color: white;
-    row-gap: 10%;
-    column-gap: 10%;
+    row-gap: 4%;
+    column-gap: 4%;
     overflow-y: auto;
 
     padding-top: 3vh;
@@ -126,9 +144,17 @@ max-height: fit-content;
     padding-left: 7vh;
     padding-bottom: 3vh;
 }
-.monster-info-img{
-   /*  display: inline-block; */
+.monster-info-img {
+
     display: none;
+}
+
+.monster-info-title {
+
+padding-left: 1vw;
+margin: 0;
+
+
 }
 
 .add-monster {
@@ -143,6 +169,8 @@ max-height: fit-content;
     /* padding: 1vh 2vw 1vh 2vw; */
     background-color: #50577A;
     color: white;
+    
+   
 }
 
 .edit-monsters {
@@ -157,11 +185,13 @@ max-height: fit-content;
       background-color: #50577A;
       color: white;   
       display: none;
+
+      
   }
 
 
 .monster-type {
-    display: grid;
+   
     grid-area: monster-type;
     border: 3px solid black;
     padding: 0px 20px 0 20px;
@@ -170,7 +200,7 @@ max-height: fit-content;
     color: white;
 }
 .monster-color {
-    display: grid;
+  
     grid-area: monster-color;
     border: 3px solid black;
     padding: 0px 20px 0 20px;
@@ -403,8 +433,9 @@ background-color: #ffffff46;
     .monster-info {
         display: block;
         margin: 0px;
-        padding: 15px 0 15px 40px;
-        font-size: 18px;
+        padding: 18% 0 18% 18%;
+        font-size: 1.4vw;
+        
     }
 
     /* I desktop läge har vi bara 1 grid kolumn */
