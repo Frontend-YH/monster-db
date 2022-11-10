@@ -271,6 +271,7 @@ function LoadSelectBoxes() {
     let monsterFeatureType;
     let monsterFeature;
     let typid; 
+    let color;
 
     // Ta fram SELECT-boxar baserat på vilka olika Feature Typer som finns i objektets array monsterFeatureType.
     // Default är Color och Type. Ta även fram tillhörande Labels.
@@ -295,8 +296,11 @@ function LoadSelectBoxes() {
             if (monsterObject.monsterFeatures[j][0]==i) {
                 monsterFeature = monsterObject.monsterFeatures[j][1]; // [1] = Namn på featuren
                 typid = monsterObject.monsterFeatures[i][0]; // [0] = featurens TypID i monsterFeatureType arrayen. T ex 0 för Color
+                color = monsterObject.monsterFeatures[j][2];
                 option[i][j] = document.createElement("option");
                 option[i][j].setAttribute("value", monsterFeature);
+                // Lägg till color och background på olika <options> baserat på deras colorcode i monsterFeatures
+                option[i][j].setAttribute("style", "color: " + color + "; background-color: #404258;");
                 option[i][j].innerText = monsterFeature;
                 select[i].appendChild(option[i][j]); // Lägg den genererade optionen i select-elementet
             }
@@ -679,7 +683,7 @@ function monsterCards(monsterList) {
         // Ett exempel vorre att monsterObject.monster[0][key] motsvarar Basilisk eller Pink eller Small.
         // Nämner vi bara key så motsvarar det nyckeln... t ex color eller type.
         // Att skriva monsterObject.monster[i][key] kan t ex i en monster-rad [i] motsvara att skriva monsterObject.monster[1]['color']
-        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+
 
         // Lägg namnet på monstret i en H4 rubrik
         h4.innerText = monsterObject[monsterList][i]['name'];
@@ -690,8 +694,12 @@ function monsterCards(monsterList) {
         div1.appendChild(h4); // Lägg in <h4> i <article>
         div1.appendChild(ul); // Lägg in <ul> i <article> efter <h4>
         div2.appendChild(img);
-        
+
+
+
     }
+
+
 
     return true;
 
