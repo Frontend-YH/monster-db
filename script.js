@@ -683,7 +683,7 @@ function monsterCards(monsterList) {
         // Ett exempel vorre att monsterObject.monster[0][key] motsvarar Basilisk eller Pink eller Small.
         // Nämner vi bara key så motsvarar det nyckeln... t ex color eller type.
         // Att skriva monsterObject.monster[i][key] kan t ex i en monster-rad [i] motsvara att skriva monsterObject.monster[1]['color']
-        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+
 
         // Lägg namnet på monstret i en H4 rubrik
         h4.innerText = monsterObject[monsterList][i]['name'];
@@ -694,8 +694,12 @@ function monsterCards(monsterList) {
         div1.appendChild(h4); // Lägg in <h4> i <article>
         div1.appendChild(ul); // Lägg in <ul> i <article> efter <h4>
         div2.appendChild(img);
-        
+
+
+
     }
+
+
 
     return true;
 
