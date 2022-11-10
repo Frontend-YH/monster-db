@@ -8,22 +8,20 @@ body{
     margin: 0;
     font-size: 3.5vh;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: 1fr;
     grid-template-rows: 1fr min-content;
     grid-template-areas:
-    'header header'
-
-    'monster-showcase '
-    'monster-showcase '
-    'add-monster add-monster '
-
-    'add-monster add-monster'
-    'add-monster add-monster'
-    'monster-type monster-type'
-    'monster-type monster-type'
-    'monster-color monster-color'
-    'monster-color monster-color'
-    'footer footer';
+    'header'
+    'monster-showcase'
+    'monster-showcase'
+    'add-monster'
+    'add-monster'
+    'add-monster'
+    'monster-type'
+    'monster-type'
+    'monster-color'
+    'monster-color'
+    'footer';
     
 
 }
@@ -82,11 +80,6 @@ h4{
 
 }
 
-.add-monster-div {
-
-    
-
-}
 /* Visar inga monster-detaljer på mobila enheter */
 .monster-info-article{
     
@@ -448,7 +441,28 @@ background-color: #ffffff46;
 
     }
 
+    .monster-showcase {
 
+        display: grid;
+        grid-area: monster-showcase;
+        grid-template-columns: repeat(2, 1fr);
+        border: 3px solid black;
+
+        min-height: 148vh;
+
+        /* max-height: 66vh; */
+        margin: 0.5vh;
+        background-color: #474E68;
+        color: white;
+        row-gap: 4%;
+        column-gap: 4%;
+        overflow-y: auto;
+    
+        padding-top: 3vh;
+        padding-right: 7vh;
+        padding-left: 7vh;
+        padding-bottom: 3vh;
+    }
 
     /* Visa monster-detaljer på desktop */
     .monster-info {
