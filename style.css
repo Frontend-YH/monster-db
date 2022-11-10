@@ -11,6 +11,7 @@ body{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr min-content;
+    overflow-x: hidden;
     grid-template-areas:
     'header'
     'monster-showcase'
