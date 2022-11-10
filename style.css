@@ -12,8 +12,8 @@ body{
     grid-row: 1fr;
     grid-template-areas:
     'header header'
-    'monster-showcase monster-showcase'
-    'monster-showcase monster-showcase'
+    'monster-showcase '
+    'monster-showcase '
     'add-monster add-monster '
     'add-monster add-monster'
     'add-monster add-monster'
@@ -111,7 +111,7 @@ max-height: fit-content;
 
     display: grid;
     grid-area: monster-showcase;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: 1fr;
     border: 3px solid black;
 
     
