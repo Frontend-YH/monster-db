@@ -114,9 +114,11 @@ grid-column: 2;
 margin: 0;
 padding: 0;
 max-height: fit-content;
-
+display: none;
 }
-
+.monster-info{
+    display: none;
+}
 .monster-showcase {
 
     display: grid;
@@ -148,9 +150,8 @@ max-height: fit-content;
 }
 
 .monster-info-title {
-
-padding-left: 1vw;
-margin: 0;
+    padding-left: 1vw;
+    margin: 0;
 
 
 }
