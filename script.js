@@ -114,7 +114,7 @@ const monsterObject = {
             let feature;
             let newMonster;
             newMonster = { name: newName,
-            img: 'https://picsum.photos/200/300'} // Lägg in det nya monstrets namn
+            img: 'https://i.ibb.co/bXMjktT/Cb-Dqpp-JUk-AE2-Q3-S-removebg-preview-1.png'} // Lägg in det nya monstrets namn
             
             // Loopa igenom monsterFeatureType för att hämta alla selectade FeatureType värden
             for(let i=0; i<monsterObject.monsterFeatureType.length; i++) {
