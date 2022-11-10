@@ -289,6 +289,25 @@ input[type=text] {
 
   }
 
+  input[type=color] {
+
+    width: 29vw;
+    height: 8vh;
+    font-size: 20px;
+    margin-left: 1.4vw;
+    margin-right: 1.4vw;
+    margin-top: 0vh;
+    margin-bottom: 6vh;
+    border-radius: 8px;
+
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+
+  }
+  
+
 
   .input-label {
     text-align: left;
