@@ -39,6 +39,9 @@ let option = []; // Deklarera en option array i GLOBAL SCOPE
 let label = []; // Deklarera en label array i GLOBAL SCOPE
 let img = document.querySelector("#monster-image"); // Add new monster image url (in nput field)
 
+
+
+
 // MonsterObjekt med en array som innehåller monster , samt en addMonster metod
 const monsterObject = {
     monster: [
@@ -231,6 +234,35 @@ monsterObject.monsterFeatures[11][2] = '#ffffff'; // XXL
 
 
 
+
+// Array med enbart Colors
+const filteredColors = function() { 
+    
+    let filteredColors = monsterObject.monsterFeatures.filter((element, index, arr) => {    
+    if (arr[index][0]==0) {
+        return element;
+    }  
+  });
+
+  return filteredColors;
+
+}
+
+  // Array enbart Types
+const filteredTypes = function() { 
+
+let filteredTypes = monsterObject.monsterFeatures.filter((element, index, arr) => {    
+    if (arr[index][0]==1) {
+        return element;
+    }  
+  });
+
+  return filteredTypes;
+
+}
+
+
+
 function LoadSelectBoxes() {
 
     let monsterFeatureType;
@@ -406,15 +438,46 @@ function monsterFeatures() {
 
             (function(index) {           
                 checkbox[i].addEventListener("click", function() {
-                    // Remove feature if clicked/checked
-                    monsterObject.removeFeature(i);
-                    monsterFeatures(); // Run monsterFeatures function again to re-create the list
-                    
-                    // Töm monsterSelects Divven
-                    removeAllChildNodes(monsterSelects);
 
-                    // Ladda in alla Select Boxes i add-monster-form igen så att ändringarna syns
-                    LoadSelectBoxes();
+                    // Om det finns 5 eller mindre färger kvar, tillåt inte borttagning
+                    // Om det finns färre än 3 typer kvar, tillåt inte borttagning
+
+                    let greenlight = true;
+                    let check = monsterObject.monsterFeatures[index][0];
+
+                    if (check === 0) {                        
+                        if (filteredColors().length < 6) {
+                            alert('Det måste finnas minst 5 Färger!');
+                            greenlight = false;
+                            this.checked = false;
+                        }
+                    } 
+                    else if (check === 1) {                        
+                        if (filteredTypes().length < 4) {
+                            alert('Det måste finnas minst 3 Typer!');
+                            greenlight = false;
+                            this.checked = false;
+                        }
+                    }                    
+                    
+                    // Om DELETE är OK att göra: GÖR
+                    if (greenlight === true) {
+
+                        // Remove feature if clicked/checked
+                        monsterObject.removeFeature(i);
+                        monsterFeatures(); // Run monsterFeatures function again to re-create the list
+                        
+                        // Töm monsterSelects Divven
+                        removeAllChildNodes(monsterSelects);
+
+                        // Ladda in alla Select Boxes i add-monster-form igen så att ändringarna syns
+                        LoadSelectBoxes();
+                        
+                       filteredColors(); // Ladda in alla colors igen
+                       filteredTypes(); // Ladda in alla types igen
+
+                    }
+
 
                 })
             })(i)
@@ -739,6 +802,8 @@ function showMonsterTypes() {
 
 showMonsterTypes();
 showMonsterColors();
+
+
 
 
 
