@@ -271,6 +271,7 @@ function LoadSelectBoxes() {
     let monsterFeatureType;
     let monsterFeature;
     let typid; 
+    let color;
 
     // Ta fram SELECT-boxar baserat på vilka olika Feature Typer som finns i objektets array monsterFeatureType.
     // Default är Color och Type. Ta även fram tillhörande Labels.
@@ -295,8 +296,11 @@ function LoadSelectBoxes() {
             if (monsterObject.monsterFeatures[j][0]==i) {
                 monsterFeature = monsterObject.monsterFeatures[j][1]; // [1] = Namn på featuren
                 typid = monsterObject.monsterFeatures[i][0]; // [0] = featurens TypID i monsterFeatureType arrayen. T ex 0 för Color
+                color = monsterObject.monsterFeatures[j][2];
                 option[i][j] = document.createElement("option");
                 option[i][j].setAttribute("value", monsterFeature);
+                // Lägg till color och background på olika <options> baserat på deras colorcode i monsterFeatures
+                option[i][j].setAttribute("style", "color: " + color + "; background-color: #404258;");
                 option[i][j].innerText = monsterFeature;
                 select[i].appendChild(option[i][j]); // Lägg den genererade optionen i select-elementet
             }
