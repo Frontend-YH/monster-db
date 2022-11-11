@@ -626,10 +626,9 @@ editbtn2.addEventListener("click", function(e) {
 
   // Klickar man på Monster DB Titeln i headern så reloadas objectMonster.monster
   headertext.addEventListener("click", function(e){
-
     removeAllChildNodes(main);
     monsterCards('monster'); // Ladda in monsterCards igen
-    //displayMinfo(); 
+    displayMinfo(); 
     e.preventDefault();
   });
 
