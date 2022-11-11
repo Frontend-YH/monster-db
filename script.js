@@ -202,7 +202,7 @@ monsterObject.monsterFeatures[11][0] = 1; // XXL
 
 monsterObject.monsterFeatures[8][0] = 2; // Railrun
 monsterObject.monsterFeatures[9][0] = 2; // Shotgun
-monsterObject.monsterFeatures[10][0] = 2; // Rocket Launcher
+monsterObject.monsterFeatures[10][0] = 2; // Knife
 
 // Feature namn
 monsterObject.monsterFeatures[0][1] = 'Yellow';
@@ -219,7 +219,7 @@ monsterObject.monsterFeatures[11][1] = 'XXL';
 
 monsterObject.monsterFeatures[8][1] = 'Railgun'; // ny temporär
 monsterObject.monsterFeatures[9][1] = 'Shotgun';  // ny temporär
-monsterObject.monsterFeatures[10][1] = 'Rocket Launcher'; // ny temporär
+monsterObject.monsterFeatures[10][1] = 'Knife'; // ny temporär
 
 // Färger (vit för icke-färg features)
 monsterObject.monsterFeatures[0][2] = '#ffff00';
