@@ -52,22 +52,24 @@
 <section class="edit-monsters">
     <h2 class="add-header">Edit monsters</h2>
     <form class="add-monster-form">
-        <label class="input-label">Monster features (click to remove):</label>
+        <label class="input-label">Features (click to remove):</label>
         <div class="monster-features">
 
         </div>
         <div style="padding-top: 20px;">
-          <label class="input-label">New Feature Category:</label>
+          <label class="input-label">Feature Category:</label>
          <select id="edit-ft-select"></select> 
         <label class="input-label">New Feature Name:</label><input type="text" id="edit-ft-name" name="feature-name" placeholder="new feature name...">
         <label class="input-label" for="edit-ft-ccode">Feature color code:</label><input type="color" id="edit-ft-ccode" name="edit-ft-ccode" placeholder="color code" value="#FFFFFF" maxlength="7">
       </div>
-        <input id="edit-btn3" class="sub-btn" type="submit" value="Add feature"><br>  
+        <input id="edit-btn3" class="sub-btn" type="submit" value="Add feature">
         <div>
-          <label class="input-label">Create New Feature Category:</label><input type="text" id="edit-ft-category" name="edit-ft-category" placeholder="new feature category name..." value="" maxlength="50">
+          <label class="input-label">Create Feature Category:</label><input type="text" id="edit-ft-category" name="edit-ft-category" placeholder="new feature category name..." value="" maxlength="50">
         </div>
         <input id="edit-btn4" class="sub-btn" type="submit" value="Add new feature category"><br>
-        <input id="edit-btn2" class="sub-btn" type="submit" value="< Back to Add monster">
+
+        <input id="edit-btn2" class="sub-btn" type="submit" value="< Back to Add monster"><br>
+        
       </form>
     </section>
 <!-- Section for monster li -->
@@ -90,5 +92,7 @@
 </footer>
 <!-- JavaScript -->
 <script src="script.js"></script>
+
+
 </body>
 </html>

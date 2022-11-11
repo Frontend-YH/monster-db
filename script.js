@@ -177,6 +177,7 @@ monsterObject.monsterFeatures[8] = []; // ny temporär
 monsterObject.monsterFeatures[9] = []; // ny temporär
 monsterObject.monsterFeatures[10] = []; // ny temporär
 monsterObject.monsterFeatures[11] = []; // XXL
+monsterObject.monsterFeatures[12] = []; // Orange
 
 // Feature-Typ nycklar (0 = Color, 1 = Typ osv)
 monsterObject.monsterFeatures[0][0] = 0; // Yellow
@@ -184,6 +185,7 @@ monsterObject.monsterFeatures[1][0] = 0; // Pink
 monsterObject.monsterFeatures[2][0] = 0; // Brown
 monsterObject.monsterFeatures[3][0] = 0; // Black
 monsterObject.monsterFeatures[4][0] = 0; // Green
+monsterObject.monsterFeatures[12][0] = 0; // Orange
 
 monsterObject.monsterFeatures[5][0] = 1; // Small
 monsterObject.monsterFeatures[6][0] = 1; // Mid
@@ -200,6 +202,7 @@ monsterObject.monsterFeatures[1][1] = 'Pink';
 monsterObject.monsterFeatures[2][1] = 'Brown';
 monsterObject.monsterFeatures[3][1] = 'Black';
 monsterObject.monsterFeatures[4][1] = 'Green';
+monsterObject.monsterFeatures[12][1] = 'Orange';
 
 monsterObject.monsterFeatures[5][1] = 'Small';
 monsterObject.monsterFeatures[6][1] = 'Mid';
@@ -223,6 +226,9 @@ monsterObject.monsterFeatures[8][2] = '#ffffff'; // ny temporär 'Railgun
 monsterObject.monsterFeatures[9][2] = '#ffffff'; // ny temporär Shotgun
 monsterObject.monsterFeatures[10][2] = '#ffffff'; // ny temporär Rocket Launcher
 monsterObject.monsterFeatures[11][2] = '#ffffff'; // XXL
+
+monsterObject.monsterFeatures[12][2] = '#FF7F27'; // Orange
+
 
 // Array med enbart Colors
 const filteredColors = function() { 
@@ -248,6 +254,10 @@ function LoadSelectBoxes() {
     let monsterFeatureType;
     let monsterFeature;
     let typid; 
+
+    let color;
+
+
     // Ta fram SELECT-boxar baserat på vilka olika Feature Typer som finns i objektets array monsterFeatureType.
     // Default är Color och Type. Ta även fram tillhörande Labels.
     for(let i=0; i<monsterObject.monsterFeatureType.length; i++) {
@@ -270,8 +280,11 @@ function LoadSelectBoxes() {
             if (monsterObject.monsterFeatures[j][0]==i) {
                 monsterFeature = monsterObject.monsterFeatures[j][1]; // [1] = Namn på featuren
                 typid = monsterObject.monsterFeatures[i][0]; // [0] = featurens TypID i monsterFeatureType arrayen. T ex 0 för Color
+                color = monsterObject.monsterFeatures[j][2];
                 option[i][j] = document.createElement("option");
                 option[i][j].setAttribute("value", monsterFeature);
+                // Lägg till color och background på olika <options> baserat på deras colorcode i monsterFeatures
+                option[i][j].setAttribute("style", "color: " + color + "; background-color: #404258;");
                 option[i][j].innerText = monsterFeature;
                 select[i].appendChild(option[i][j]); // Lägg den genererade optionen i select-elementet
             }
@@ -521,7 +534,7 @@ function monsterCards(monsterList) {
         // Ett exempel vorre att monsterObject.monster[0][key] motsvarar Basilisk eller Pink eller Small.
         // Nämner vi bara key så motsvarar det nyckeln... t ex color eller type.
         // Att skriva monsterObject.monster[i][key] kan t ex i en monster-rad [i] motsvara att skriva monsterObject.monster[1]['color']
-        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+
 
         // Lägg namnet på monstret i en H4 rubrik
         h4.innerText = monsterObject[monsterList][i]['name'];
@@ -531,7 +544,16 @@ function monsterCards(monsterList) {
         div1.appendChild(h4); // Lägg in <h4> i <article>
         div1.appendChild(ul); // Lägg in <ul> i <article> efter <h4>
         div2.appendChild(img);
+
     }
+
+
+
+
+   
+
+
+
     return true;
 }
 // Färger lagras i monsterObject.monsterFeatures[index][2]
@@ -658,3 +680,9 @@ function filterMonsters(key, feature) {
     monsterCards('filteredMonsters');
 }
 
+
+   
+
+
+  
+ 
