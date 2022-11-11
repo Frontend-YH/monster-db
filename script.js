@@ -337,40 +337,6 @@ function LoadSelectBoxes() {
 
     loadFeatureTypeSelectBox();
 
-    /*
-
-    // DYNAMISK CREATE AV DE 2 SUBMIT-KNAPPARNA för ett gammalt scenario
-
-    let inputAddButton = document.createElement("input");
-    inputAddButton.setAttribute("id", "sub-btn");
-    inputAddButton.setAttribute("class", "sub-btn");
-    inputAddButton.setAttribute("type", "submit");
-    inputAddButton.setAttribute("value", "Add monster");
-
-    let inputEditButton = document.createElement("input");
-    inputEditButton.setAttribute("id", "edit-btn");
-    inputEditButton.setAttribute("class", "sub-btn");
-    inputEditButton.setAttribute("type", "submit");
-    inputEditButton.setAttribute("value", "Edit monster");
-
-    inputAddButton.addEventListener("click", function(e) {
-
-        let newName = document.querySelector("#monster-name").value;
-
-
-        monsterObject.addMonster(newName, select);
-        removeAllChildNodes(main);
-        monsterCards('monster'); // Ladda in monsterCards igen
-        e.preventDefault();
-
-      });
-
-      addMonsterForm.appendChild(inputAddButton); // xxx
-      addMonsterForm.appendChild(inputEditButton); // xxx
-
-      */
-
-
         // Listener för att Adda-monster
         inputAddButton.addEventListener("click", function(e) {
             
@@ -490,7 +456,6 @@ function monsterFeatures() {
             })(i)
 
         }
-        
     }
 
 }
@@ -510,15 +475,6 @@ function removeAllChildNodes(parent) {
     }
 }
 
-
-
-
-
-
-
-
-
-
 // Listener för att växla till Edit-monster sektionen
 editbtn.addEventListener("click", function(e) {
 
@@ -528,8 +484,6 @@ editbtn.addEventListener("click", function(e) {
 
   });
 
-
-  
 // Listener för att lägg till new Feature med monsterObject.addFeature metoden
 editFeatureSubmit.addEventListener("click", function(e) {
 
@@ -612,8 +566,6 @@ editFeatureCategorySubmit.addEventListener("click", function(e) {
 
 });
 
-  
-
     // Växla till Add-monster sektionen
 editbtn2.addEventListener("click", function(e) {
 
@@ -632,12 +584,6 @@ editbtn2.addEventListener("click", function(e) {
     //displayMinfo(); 
     e.preventDefault();
   });
-
-
-
-
-
-
 
 /*--------------------Funktion för att hämta alla monstren och visa dom på skärmen----------*/
 
@@ -698,8 +644,6 @@ function monsterCards(monsterList) {
 
 
     }
-
-
 
     return true;
 
@@ -846,9 +790,3 @@ function filterMonsters(key, feature) {
 
 }
 
-
-   
-
-
-  
- 

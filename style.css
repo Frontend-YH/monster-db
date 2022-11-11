@@ -22,10 +22,7 @@ body{
     'monster-color'
     'monster-color'
     'footer';
-    
-
 }
-/*  */
 header{
     text-align: center;
     grid-area: header;
@@ -55,13 +52,11 @@ img{
     max-width: 300px;
     max-height: 300px;
 }
-
 .add-header{
     text-align: center;
     margin-bottom: 0px;
 
 }
-
 .add-monster-form {
     padding-bottom: 2vh;
     display: grid;
@@ -71,38 +66,25 @@ img{
     grid-gap: 1px;
     height: 100%;
     justify-items: center;
-
-
 }
-
 /* Visar inga monster-detaljer på mobila enheter */
 .monster-info-article {
-    
     display: grid;
     grid-template-columns: 1.3fr 0.7fr;
-    
     margin-top: 30px;
     border: 2px solid lightgray;
     gap: 8%;
     border-radius: 25px;
-    /* padding: 0 0 0 10%; */
     background-color: #404258;
     padding-right: 30px;
     padding-top: 30px; 
     padding-bottom: 30px;  
     padding-left: 18px;
     height: 20vh;
-    
-    
-    
-   
 }
 .monster-text-div {
-/* padding:10% 15% 10% 10%; */
 grid-column: 1;
-
 }
-
 .monster-info-div{
 grid-column: 2;
 margin: 0;
@@ -119,53 +101,37 @@ max-height: fit-content;
     grid-area: monster-showcase;
     grid-template-columns: 1fr;
     border: 3px solid black;
-
-
-
     min-height: 148vh;
-   
-
-    /* max-height: 66vh; */
     margin: 0.5vh;
     background-color: #474E68;
     color: white;
     row-gap: 4%;
     column-gap: 4%;
     overflow-y: auto;
-
     padding-top: 3vh;
     padding-right: 7vh;
     padding-left: 7vh;
     padding-bottom: 3vh;
 }
  .monster-info-img {
-
     display: none;
-} 
-
+}
 .monster-info-title {
     padding-left: 1vw;
     margin: 0;
-
-
 }
-
 .add-monster {
   /* I add-monster sektionen kör vi med FLEX och flex-direction: column */
     display: flex;
     flex-direction: column;
     grid-area: add-monster;
     align-items: center;
-
     border:3px solid #fff;
       /* vh används i höjdled och vw i sidled för att skala med mindre enheter */
     /* padding: 1vh 2vw 1vh 2vw; */
     background-color: #50577A;
     color: white;
-    
-   
 }
-
 .edit-monsters {
     /* I add-monster sektionen kör vi med FLEX och flex-direction: column */
       display: none;
@@ -178,13 +144,10 @@ max-height: fit-content;
       background-color: #50577A;
       color: white;   
       display: none;
-
-      
   }
 
 
 .monster-type {
-   
     grid-area: monster-type;
     border: 3px solid black;
     padding: 0px 20px 0 20px;
@@ -193,53 +156,39 @@ max-height: fit-content;
     color: white;
 }
 .monster-color {
-  
     grid-area: monster-color;
     border: 3px solid black;
     padding: 0px 20px 0 20px;
     margin: 2px;
     background-color: #50577A;
     color: white;
-
 }
 #header-text {
     margin: auto;
     cursor: pointer;
-    font-size: 42px; /* JONAS ADD igårkväll */
-    
+    font-size: 42px; 
 }
-
 /* Edit monsters, monster-features DIV container*/
 .monster-features {
-
     padding-left: 0.5vw;  
     padding-right: 0.5vw;     
     padding-top: 1vh;
     padding-bottom: 1vh;      
     margin: 0px;  
     margin-left: 1.4vw;
-
 }
-
-
 .mfeatures-subdiv {
-
     min-width: min-content;
-
 }
-
 /* Edit monsters, monster-features checkboxes*/
 .mfeatures-checkboxes {
     margin-right: 3vh;
     margin-left: 1vw;
-
 }
-
 .mlabel {
 
     font-size: 80%;
 }
-
 .mlabel:hover {
     text-decoration:line-through;
     cursor:pointer; /* Mouse grab vid hovring */
@@ -253,24 +202,19 @@ max-height: fit-content;
  /* En massa view-width vw inlagt för att skala med mindre enheter */
  /* I höjdled kör vi view-height (vh) istället */
 input[type=text] {
-
     width: 100%;
     height: 5vh;
     font-size: 22px;
-    
     margin-bottom: 2vh;
     border-radius: 8px;
-
     padding-left: 0.5vw;
     padding-right: 0.5vw;
     padding-top: 1vh;
     padding-bottom: 1vh;
     margin-right: 0vw;
-
   }
 
   input[type=color] {
-
     width: 100%;
     height: 8vh;
     font-size: 20px;
@@ -278,16 +222,11 @@ input[type=text] {
     margin-right: 1.4vw;
     margin-top: 0vh;
     border-radius: 8px;
-
     padding-left: 0.5vw;
     padding-right: 0.5vw;
     padding-top: 1vh;
     padding-bottom: 1vh;
-
   }
-  
-
-
   .input-label {
     padding-top: 13%;
     text-align: left;
@@ -306,24 +245,17 @@ input[type=text] {
     padding-top: 1vh;
     padding-bottom: 1vh;
   }
-
-
-
 .sub-btn {
     margin-left: 1.4vw;
     margin-right: 1.4vw;
     margin-top: 2vh;
     margin-bottom: 2vh;
-
     width: 90%;
-
     padding-left: 0.5vw;
     padding-right: 0.5vw;
     padding-top: 2vh;
     padding-bottom: 2vh;
-
     border-radius: 10px;
-
         background-color: #ffffff;
         border-radius: 8px;
         border: 1px solid #666eff;
@@ -333,11 +265,7 @@ input[type=text] {
         font-size: 24px;
         text-decoration: none;
         text-shadow: 0px 1px 0px #2f6627;
-
 }
-
-
-
 .sub-btn:hover {
     background-color:#474E68;
     color: #ffffff;
@@ -353,33 +281,16 @@ input[type=text] {
 cursor: pointer;
 background-color: #ffffff46;
 }
-
 .monsterColorLi:hover,.monsterTypeLi:hover{
     cursor: pointer;
     background-color: #ffffff46;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* MEDIA ATTRIBUT SEKTION BÖRJAR / DESKTOP */   
 /* -----Media attribut för dator------ */
 @media only screen and (min-width: 1025px) {
     body {
-
     grid-template-columns: repeat(3,1fr);
-
     display: grid;
     grid-template-areas:
     'header header header'
@@ -389,11 +300,8 @@ background-color: #ffffff46;
     'monster-type monster-color add-monster'
 
     'footer footer footer';
-
-
     }
     input[type=text] {
-
         width: 28vw;
         height: 6vh; /* JONAS ADD igårkväll */
         font-size: 22px;
@@ -401,15 +309,12 @@ background-color: #ffffff46;
         margin-right: 1.4vw;
         margin-top: 0vh;
         border-radius: 8px;
-    
         padding-left: 0.5vw;
         padding-right: 0.5vw;
         padding-top: 1vh;
         margin-bottom: 6vh; /* JONAS ADD igårkväll */
         padding-bottom: 0px;
-    
       }
-
       select {
         width: 29vw;
         height: 7vh;
@@ -419,19 +324,14 @@ background-color: #ffffff46;
         margin-top: 0vh;
         margin-bottom: 6vh; /* JONAS ADD igårkväll */
         border-radius: 8px;
-    
         padding-left: 0.5vw;
         padding-right: 0.5vw;
         padding-top: 1vh;
         padding-bottom: 1vh;
-
-        
-
       }
 
       /* JONAS ADD igårkväll */
       input[type=color] {
-
         width: 29vw;
         height: 8vh; /* JONAS ADD igårkväll */
         font-size: 22px;
@@ -439,13 +339,11 @@ background-color: #ffffff46;
         margin-right: 1.4vw;
         margin-top: 0vh;
         border-radius: 8px;
-    
         padding-left: 0.5vw;
         padding-right: 0.5vw;
         padding-top: 1vh;
         margin-bottom: 6vh; /* JONAS ADD igårkväll */
         padding-bottom: 0px;
-    
       }
 
     .monster-showcase {
@@ -454,36 +352,26 @@ background-color: #ffffff46;
         grid-area: monster-showcase;
         grid-template-columns: repeat(2, 1fr);
         border: 3px solid black;
-
-
         min-height: 154vh;
-
         overflow-y: auto;
-
-        /* max-height: 66vh; */
-
         margin: 0.5vh;
         background-color: #474E68;
         color: white;
         row-gap: 4%;
         column-gap: 4%;
         overflow-y: auto;
-    
         padding-top: 3vh;
         padding-right: 7vh;
         padding-left: 7vh;
         padding-bottom: 3vh;
     }
-
     /* Visa monster-detaljer på desktop */
     .monster-info {
         display: block;
         margin: 0px;
         padding: 18% 0 18% 18%;
         font-size: 1.4vw;
-        
     }
-
     /* I desktop läge har vi bara 1 grid kolumn */
     .add-monster-form {
         padding: 0;
@@ -492,24 +380,19 @@ background-color: #ffffff46;
         display: grid;
         grid-template-columns: 1fr;
         grid-auto-rows:min-content; /* JONAS add igårkväll */
-        
     }
     .sub-btn {
         margin-left: 1.4vw;
         margin-right: 1.4vw;
         margin-top: 2vh;
         margin-bottom: 2vh;
-    
         width: 29vw;
         height: 8vh;
-    
         padding-left: 0.5vw;
         padding-right: 0.5vw;
         padding-top: 2vh;
         padding-bottom: 2vh;
-    
         border-radius: 10px;
-    
             background-color: #ffffff;
             border-radius: 8px;
             border: 1px solid #666eff;
@@ -519,18 +402,15 @@ background-color: #ffffff46;
             font-size: 24px;
             text-decoration: none;
             text-shadow: 0px 1px 0px #2f6627;
-    
     }
     /* Add monster knappen ska bara täcka 1 kolumn i Desktop-mode */
-    .sub-btn {   
+    .sub-btn {
         grid-column: 1 / 2;
     }
 
     /* JONAS ADD igårkväll */
     #edit-btn3 {
-
         margin-bottom: 100px; /* JONAS ADD igårkväll */
-        
     }
 
     .monster-info-img{
@@ -547,10 +427,8 @@ background-color: #ffffff46;
         margin-top: 0px;
         padding-top: 0px;
         height: 4vh;
-        
       }
       .mlabel {
-
         font-size: 20px;
     }
     .monster-info-div{
@@ -558,19 +436,12 @@ background-color: #ffffff46;
         margin: 0;
         padding: 0;
         }
-
      .monster-img-div {
-
         padding: 0px;
         margin: 0px;
-        
-    
-   } 
-
+   }
    .add-header{
     text-align: center;
     margin-bottom: 20px;
-
 }
-
 }
