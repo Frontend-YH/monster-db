@@ -581,7 +581,7 @@ editbtn2.addEventListener("click", function(e) {
 
     removeAllChildNodes(main);
     monsterCards('monster'); // Ladda in monsterCards igen
-    //displayMinfo(); 
+    displayMinfo(); 
     e.preventDefault();
   });
 
